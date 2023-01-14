@@ -1,0 +1,93 @@
+{
+	"version": "2",
+	"templates": [
+		{
+			"categories": [
+				"Tools",
+				"Web",
+				"Other"
+			],
+			"description": "Heimdall is a way to organise all those links to your most used web sites and web applications in a simple way.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				}
+			],
+			"image": "lscr.io/linuxserver/heimdall:latest",
+			"logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/heimdall-icon.png",
+			"name": "heimdall",
+			"platform": "linux",
+			"ports": [
+				"80:8880/tcp",
+				"443:8443/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Heimdall",
+			"type": 1,
+			"volumes": [
+				{
+					"container": "/config"
+				}
+			]
+		},
+		{
+			"categories": [
+				"Games",
+				"Other"
+			],
+			"description": "AMP (Application Management Panel) is a simple to use and easy to install control panel and management system for hosting game servers. ",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"label": "TZ",
+					"name": "TZ"
+				},
+				{
+					"default": "admin",
+					"label": "USERNAME",
+					"name": "USERNAME"
+				},
+				{
+					"default": "password",
+					"label": "PASSWORD",
+					"name": "PASSWORD"
+				},
+				{
+					"label": "AMP_LICENCE",
+					"name": "AMP_LICENCE"
+				}
+			],
+			"image": "mitchtalmadge/amp-dockerized",
+			"logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/heimdall-icon.png",
+			"name": "amp",
+			"platform": "linux",
+			"ports": [
+				"8080:8880/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "AMP (Application Management Panel)",
+			"type": 1,
+			"volumes": [
+				{
+					"container": "/appdata/amp"
+				}
+			]
+		}
+	]
+}
