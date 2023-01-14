@@ -218,6 +218,11 @@
 					"default": "100",
 					"label": "PGID",
 					"name": "PGID"
+				},
+				{
+					"default": "Australia/Brisbane",
+					"label": "TZ",
+					"name": "TZ"
 				}
 			],
 			"image": "lscr.io/linuxserver/radarr:latest",
@@ -232,16 +237,15 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/portainer/Files/AppData/Config/Radarr",
 					"container": "/config"
 				},
 				{
-					"bind": "/portainer/Downloads",
-					"container": "/downloads"
+					"bind": "/mnt/plex",
+					"container": "/plex"
 				},
 				{
-					"bind": "/portainer/Movies",
-					"container": "/movies"
+					"bind": "/mnt/completed",
+					"container": "/completed"
 				}
 			]
 		},
@@ -261,6 +265,11 @@
 					"default": "100",
 					"label": "PGID",
 					"name": "PGID"
+				},
+				{
+					"default": "Australia/Brisbane",
+					"label": "TZ",
+					"name": "TZ"
 				}
 			],
 			"image": "lscr.io/linuxserver/sonarr:latest",
