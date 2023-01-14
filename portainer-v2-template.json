@@ -74,7 +74,7 @@
 				}
 			],
 			"image": "mitchtalmadge/amp-dockerized",
-			"logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/heimdall-icon.png",
+			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/cubecoders.png",
 			"name": "amp",
 			"platform": "linux",
 			"ports": [
