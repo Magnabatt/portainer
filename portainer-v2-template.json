@@ -88,6 +88,287 @@
 					"container": "/appdata/amp"
 				}
 			]
+		},
+		{
+			"categories": [
+				"DNS",
+				"Tools"
+			],
+			"description": "Duck DNS is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free, and doesn't require reactivation or forum posts to maintain its existence.\r\n\r\nFirst, go to duckdns site, register your subdomain and retrieve your token\r\nThen run the docker create command above with your subdomain(s) and token\r\nIt will update your IP with the DuckDNS service every 5 minutes\r\n\r\n",
+			"env": [
+				{
+					"label": "SUBDOMAINS",
+					"name": "SUBDOMAINS",
+					"set": ""
+				},
+				{
+					"label": "TOKEN",
+					"name": "TOKEN",
+					"set": ""
+				},
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				}
+			],
+			"image": "lscr.io/linuxserver/duckdns:latest",
+			"logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/duckdns.png",
+			"name": "duckdns",
+			"platform": "linux",
+			"restart_policy": "unless-stopped",
+			"title": "Duck DNS",
+			"type": 1
+		},
+		{
+			"categories": [
+				"Other",
+				"Tools"
+			],
+			"description": "Code-server is VS Code running on a remote server, accessible through the browser.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "GUID"
+				},
+				{
+					"label": "TZ",
+					"name": "TZ"
+				},
+				{
+					"label": "PASSWORD",
+					"name": "PASSWORD"
+				},
+				{
+					"label": "SUDO_PASSWORD",
+					"name": "SUDO_PASSWORD"
+				},
+				{
+					"default": "example.my.domain",
+					"label": "PROXY_DOMAIN",
+					"name": "PROXY_DOMAIN"
+				}
+			],
+			"image": "lscr.io/linuxserver/code-server:latest",
+			"logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/code-server.png",
+			"name": "code-server",
+			"platform": "linux",
+			"ports": [
+				"8443:8443/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Code Server",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/Code-Server",
+					"container": "/config"
+				}
+			]
+		},
+		{
+			"categories": [
+				"Proxy",
+				"Tools"
+			],
+			"description": "Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.",
+			"image": "jlesage/nginx-proxy-manager",
+			"logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/proxy_mgr.png",
+			"name": "nginx-proxy-manager",
+			"platform": "linux",
+			"ports": [
+				"80:8080/tcp",
+				"81:8181/tcp",
+				"443:4443/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Nginx Proxy Manager",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/Nginx-Proxy",
+					"container": "/config"
+				}
+			]
+		},
+		{
+			"categories": [
+				"Downloaders",
+				"Video"
+			],
+			"description": "Radarr - A fork of Sonarr to work with movies à la Couchpotato.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				}
+			],
+			"image": "lscr.io/linuxserver/radarr:latest",
+			"logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/radarr.png",
+			"name": "radarr",
+			"platform": "linux",
+			"ports": [
+				"7878:7878/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Radarr",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/Radarr",
+					"container": "/config"
+				},
+				{
+					"bind": "/portainer/Downloads",
+					"container": "/downloads"
+				},
+				{
+					"bind": "/portainer/Movies",
+					"container": "/movies"
+				}
+			]
+		},
+		{
+			"categories": [
+				"Downloaders",
+				"Video"
+			],
+			"description": "Sonarr (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				}
+			],
+			"image": "lscr.io/linuxserver/sonarr:latest",
+			"logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/sonarr-icon.png",
+			"name": "sonarr",
+			"platform": "linux",
+			"ports": [
+				"8989:8989/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Sonarr",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/Sonarr",
+					"container": "/config"
+				},
+				{
+					"bind": "/dev/rtc",
+					"container": "/dev/rtc"
+				},
+				{
+					"bind": "/portainer/TV",
+					"container": "/tv"
+				},
+				{
+					"bind": "/portainer/Downloads",
+					"container": "/downloads"
+				}
+			]
+		},
+		{
+			"categories": [
+				"Other",
+				"Tools"
+			],
+			"description": "Tautulli is a 3rd party application that you can run along side your Plex Media Server to monitor activity and track various statistics. Most importantly, these statistics include what has been watched, who watched it, when and where they watched it, and how it was watched. All statistics are presented in a nice and clean interface with many tables and graphs, which makes it easy to brag about your server to everyone else.[br][br]\r\n  [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]\r\n  [b]8181[/b] The webui for Tautulli's webui [br]\r\n  [b]/config[/b] Storing Configuration and the Tautulli database[br]\r\n[b]/logs[/b] Map to you plex logs (required for IP logging)[br]\r\n\r\n",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				}
+			],
+			"image": "lscr.io/linuxserver/tautulli:latest",
+			"logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/tautulli-icon.png",
+			"name": "tautulli",
+			"platform": "linux",
+			"ports": [
+				"8181:8181/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Tautulli",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Logs",
+					"container": "/logs"
+				},
+				{
+					"bind": "/portainer/Files/AppData/Config/Tautulli",
+					"container": "/config"
+				}
+			]
+		},
+		{
+			"categories": [
+				"Video",
+				"Other"
+			],
+			"description": "Tvheadend is a TV streaming server and recorder for Linux, FreeBSD and Android supporting DVB-S, DVB-S2, DVB-C, DVB-T, ATSC, ISDB-T, IPTV, SAT\u0026gt;IP and HDHomeRun as input sources.\r\nTvheadend offers the HTTP (VLC, MPlayer), HTSP (Kodi, Movian) and SAT\u0026gt;IP streaming.\r\nMultiple EPG sources are supported (over-the-air DVB and ATSC including OpenTV DVB extensions, XMLTV, PyXML).",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				}
+			],
+			"image": "lscr.io/linuxserver/tvheadend:latest",
+			"logo": "http://i.imgur.com/zGSUAT4.png",
+			"name": "tvheadend",
+			"platform": "linux",
+			"ports": [
+				"9981:9981/tcp",
+				"9982:9982/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Tvheadend",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/TVHeadend",
+					"container": "/config"
+				},
+				{
+					"container": "/recordings"
+				}
+			]
 		}
 	]
 }
