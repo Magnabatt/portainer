@@ -4,8 +4,7 @@
 		{
 			"categories": [
 				"Tools",
-				"Web",
-				"Other"
+				"Web"
 			],
 			"description": "Heimdall is a way to organise all those links to your most used web sites and web applications in a simple way.",
 			"env": [
@@ -39,8 +38,7 @@
 		},
 		{
 			"categories": [
-				"Games",
-				"Other"
+				"Games"
 			],
 			"description": "AMP (Application Management Panel) is a simple to use and easy to install control panel and management system for hosting game servers. ",
 			"env": [
@@ -55,6 +53,7 @@
 					"name": "PGID"
 				},
 				{
+					"default": "Australia/Brisbane",
 					"label": "TZ",
 					"name": "TZ"
 				},
@@ -143,6 +142,7 @@
 					"name": "GUID"
 				},
 				{
+					"default": "Australia/Brisbane",
 					"label": "TZ",
 					"name": "TZ"
 				},
@@ -294,7 +294,7 @@
 		},
 		{
 			"categories": [
-				"Other",
+				"Video",
 				"Tools"
 			],
 			"description": "Tautulli is a 3rd party application that you can run along side your Plex Media Server to monitor activity and track various statistics. Most importantly, these statistics include what has been watched, who watched it, when and where they watched it, and how it was watched. All statistics are presented in a nice and clean interface with many tables and graphs, which makes it easy to brag about your server to everyone else.[br][br]\r\n  [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]\r\n  [b]8181[/b] The webui for Tautulli's webui [br]\r\n  [b]/config[/b] Storing Configuration and the Tautulli database[br]\r\n[b]/logs[/b] Map to you plex logs (required for IP logging)[br]\r\n\r\n",
@@ -350,7 +350,7 @@
 				}
 			],
 			"image": "lscr.io/linuxserver/tvheadend:latest",
-			"logo": "http://i.imgur.com/zGSUAT4.png",
+			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/tvheadend-big.png",
 			"name": "tvheadend",
 			"platform": "linux",
 			"ports": [
@@ -367,6 +367,72 @@
 				},
 				{
 					"container": "/recordings"
+				}
+			]
+		},
+		{
+			"categories": [
+				"Video",
+				"Tools"
+			],
+			"description": "Plex-meta-manager is a Python 3 script that can be continuously run using YAML configuration files to update on a schedule the metadata of the movies, shows, and collections in your libraries as well as automatically build collections based on various methods all detailed in the wiki.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "Australia/Brisbane",
+					"label": "TZ",
+					"name": "TZ"
+				},
+				{
+					"default": "/config/config.yml",
+					"label": "PMM_CONFIG",
+					"name": "PMM_CONFIG"
+				},
+				{
+					"default": "0:30",
+					"label": "PMM_TIME",
+					"name": "PMM_TIME"
+				},
+				{
+					"default": "False",
+					"label": "PMM_RUN",
+					"name": "PMM_RUN"
+				},
+				{
+					"default": "False",
+					"label": "PMM_TEST",
+					"name": "PMM_TEST"
+				},
+				{
+					"default": "False",
+					"label": "PMM_NO_MISSING",
+					"name": "PMM_NO_MISSING"
+				}
+			],
+			"image": "lscr.io/linuxserver/plex-meta-manager:latest",
+			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/plex-meta-manager.png",
+			"name": "Plex-meta-manager",
+			"platform": "linux",
+			"ports": [
+				"9981:9981/tcp",
+				"9982:9982/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Plex-meta-manager",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/Plex-meta-manager",
+					"container": "/config"
 				}
 			]
 		}
