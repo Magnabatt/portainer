@@ -422,16 +422,52 @@
 			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/plex-meta-manager.png",
 			"name": "Plex-meta-manager",
 			"platform": "linux",
-			"ports": [
-				"9981:9981/tcp",
-				"9982:9982/tcp"
-			],
 			"restart_policy": "unless-stopped",
 			"title": "Plex-meta-manager",
 			"type": 1,
 			"volumes": [
 				{
 					"bind": "/portainer/Files/AppData/Config/Plex-meta-manager",
+					"container": "/config"
+				}
+			]
+		},
+		{
+			"categories": [
+				"Video",
+				"Tools"
+			],
+			"description": "Overseerr is a request management and media discovery tool built to work with your existing Plex ecosystem.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "Australia/Brisbane",
+					"label": "TZ",
+					"name": "TZ"
+				}
+			],
+			"image": "lscr.io/linuxserver/overseerr:latest",
+			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/overseerr.png",
+			"name": "overseerr",
+			"platform": "linux",
+			"ports": [
+				"5055:5055/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Overseerr",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/overseerr",
 					"container": "/config"
 				}
 			]
