@@ -139,7 +139,7 @@
 				{
 					"default": "1000",
 					"label": "PUID",
-					"name": "GUID"
+					"name": "PUID"
 				},
 				{
 					"default": "Australia/Brisbane",
