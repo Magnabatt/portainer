@@ -480,6 +480,84 @@
 					"container": "/config"
 				}
 			]
+		},
+		{
+			"categories": [
+				"Database",
+				"Tools"
+			],
+			"description": "InfluxDB is a time series database built from the ground up to handle high write and query loads. InfluxDB is meant to be used as a backing store for any use case involving large amounts of timestamped data, including DevOps monitoring, application metrics, IoT sensor data, and real-time analytics.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "Australia/Brisbane",
+					"label": "TZ",
+					"name": "TZ"
+				}
+			],
+			"image": "influxdb:latest",
+			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/influxdb.png",
+			"name": "influxdb",
+			"platform": "linux",
+			"ports": [
+				"8086:8086/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "InfluxDB",
+			"type": 1,
+			"volumes": [
+				{
+					"container": "/influxdb2"
+				}
+			]
+		},
+		{
+			"categories": [
+				"Dashboard",
+				"Tools"
+			],
+			"description": "Grafana is a multi-platform open source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "Australia/Brisbane",
+					"label": "TZ",
+					"name": "TZ"
+				}
+			],
+			"image": "grafana/grafana",
+			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/Grafana.png",
+			"name": "grafana",
+			"platform": "linux",
+			"ports": [
+				"3000:30000/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Grafana",
+			"type": 1,
+			"volumes": [
+				{
+					"container": "/config"
+				}
+			]
 		}
 	]
 }
