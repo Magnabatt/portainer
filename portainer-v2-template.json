@@ -138,8 +138,8 @@
 				},
 				{
 					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
+					"label": "PGID",
+					"name": "PGID"
 				},
 				{
 					"default": "Australia/Brisbane",
