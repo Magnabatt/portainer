@@ -77,7 +77,7 @@
 			"name": "amp",
 			"platform": "linux",
 			"ports": [
-				"8080:8880/tcp"
+				"6080:8080/tcp"
 			],
 			"restart_policy": "unless-stopped",
 			"title": "AMP (Application Management Panel)",
