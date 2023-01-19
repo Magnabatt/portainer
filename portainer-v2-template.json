@@ -68,8 +68,8 @@
 					"name": "PASSWORD"
 				},
 				{
-					"label": "AMP_LICENCE",
-					"name": "AMP_LICENCE"
+					"label": "LICENCE",
+					"name": "LICENCE"
 				}
 			],
 			"image": "mitchtalmadge/amp-dockerized",
