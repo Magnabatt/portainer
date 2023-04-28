@@ -559,6 +559,46 @@
 					"container": "/config"
 				}
 			]
+		},
+		{
+			"categories": [
+				"Database",
+				"Tools"
+			],
+			"description": "Redis is an open-source, networked, in-memory, key-value data store with optional durability. It is written in ANSI C. The development of Redis is sponsored by Redis Labs today; before that, it was sponsored by Pivotal and VMware. According to the monthly ranking by DB-Engines.com, Redis is the most popular key-value store. The name Redis means REmote DIctionary Server.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "Australia/Brisbane",
+					"label": "TZ",
+					"name": "TZ"
+				}
+			],
+			"image": "redis/redis-stack:latest",
+			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/Redis.png",
+			"name": "redis-stack",
+			"platform": "linux",
+			"ports": [
+				"6379:6379/tcp",
+				"8001:8001/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Redis-Stack",
+			"type": 1,
+			"volumes": [
+				{
+					"container": "/config"
+				}
+			]
 		}
 	]
 }
