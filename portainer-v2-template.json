@@ -584,7 +584,7 @@
 				}
 			],
 			"image": "redis/redis-stack:latest",
-			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/Redis.png",
+			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/redis.png",
 			"name": "redis-stack",
 			"platform": "linux",
 			"ports": [
