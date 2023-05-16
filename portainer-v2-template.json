@@ -599,6 +599,104 @@
 					"container": "/config"
 				}
 			]
+		},
+		{
+			"categories": [
+				"Database",
+				"Tools"
+			],
+			"description": "MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemata.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "1000",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "Australia/Brisbane",
+					"label": "TZ",
+					"name": "TZ"
+				},
+				{
+					"default": "root",
+					"label": "MONGO_INITDB_ROOT_USERNAME",
+					"name": "MONGO_INITDB_ROOT_USERNAME"
+				},
+				{
+					"default": "example",
+					"label": "MONGO_INITDB_ROOT_PASSWORD",
+					"name": "MONGO_INITDB_ROOT_PASSWORD"
+				}
+			],
+			"image": "mongo:latest",
+			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/mongodb.png",
+			"name": "mongodb",
+			"platform": "linux",
+			"ports": [
+				"27017:27017/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "MongoDB",
+			"type": 1,
+			"volumes": [
+				{
+					"container": "/config"
+				}
+			]
+		},
+		{
+			"categories": [
+				"Database",
+				"Tools"
+			],
+			"description": "Mongo-express is a web-based MongoDB admin interface written in Node.js, Express.js, and Bootstrap3.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "1000",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "Australia/Brisbane",
+					"label": "TZ",
+					"name": "TZ"
+				},
+				{
+					"default": "root",
+					"label": "ME_CONFIG_MONGODB_ADMINUSERNAME",
+					"name": "ME_CONFIG_MONGODB_ADMINUSERNAME"
+				},
+				{
+					"default": "example",
+					"label": "ME_CONFIG_MONGODB_ADMINPASSWORD",
+					"name": "ME_CONFIG_MONGODB_ADMINPASSWORD"
+				}
+			],
+			"image": "mongo-express:latest",
+			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/mongo-express.png",
+			"name": "mongo-express",
+			"platform": "linux",
+			"ports": [
+				"8081:8081/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Mongo-Express",
+			"type": 1,
+			"volumes": [
+				{
+					"container": "/config"
+				}
+			]
 		}
 	]
 }
