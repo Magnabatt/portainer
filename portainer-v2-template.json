@@ -606,7 +606,7 @@
 				"Tools"
 			],
 			"description": "MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemata.",
-			"image": "mongo:latest",
+			"image": "mongo:4.4.18",
 			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/mongodb.png",
 			"name": "mongodb",
 			"platform": "linux",
