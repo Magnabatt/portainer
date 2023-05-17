@@ -638,14 +638,14 @@
 			"name": "mongodb",
 			"platform": "linux",
 			"ports": [
-				"27017:27017/tcp"
+				"27017/tcp"
 			],
 			"restart_policy": "unless-stopped",
 			"title": "MongoDB",
 			"type": 1,
 			"volumes": [
 				{
-					"container": "/config"
+					"container": "/data/db"
 				}
 			]
 		},
