@@ -645,6 +645,11 @@
 					"name": "TZ"
 				},
 				{
+					"default": "localhost",
+					"label": "ME_CONFIG_MONGODB_SERVER",
+					"name": "ME_CONFIG_MONGODB_SERVER"
+				},
+				{
 					"default": "root",
 					"label": "ME_CONFIG_MONGODB_ADMINUSERNAME",
 					"name": "ME_CONFIG_MONGODB_ADMINUSERNAME"
