@@ -606,6 +606,33 @@
 				"Tools"
 			],
 			"description": "MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemata.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "1000",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "Australia/Brisbane",
+					"label": "TZ",
+					"name": "TZ"
+				},
+				{
+					"default": "root",
+					"label": "MONGO_INITDB_ROOT_USERNAME",
+					"name": "MONGO_INITDB_ROOT_USERNAME"
+				},
+				{
+					"default": "example",
+					"label": "MONGO_INITDB_ROOT_PASSWORD",
+					"name": "MONGO_INITDB_ROOT_PASSWORD"
+				}
+			],
 			"image": "mongo:4.4.18",
 			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/mongodb.png",
 			"name": "mongodb",
