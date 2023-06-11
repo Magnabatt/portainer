@@ -702,6 +702,45 @@
 					"container": "/config"
 				}
 			]
+		},
+		{
+			"categories": [
+				"Media",
+				"Tools"
+			],
+			"description": "xTeVe is a M3U proxy server for Plex, Emby and any client and provider which supports the .TS and .M3U8 (HLS) streaming formats.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "1000",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "Australia/Brisbane",
+					"label": "TZ",
+					"name": "TZ"
+				}
+			],
+			"image": "dnsforge/xteve:latest",
+			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/xTeVe.png",
+			"name": "xTeVe",
+			"platform": "linux",
+			"ports": [
+				"34400:34400/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "xTeVe",
+			"type": 1,
+			"volumes": [
+				{
+					"container": "/config"
+				}
+			]
 		}
 	]
 }
