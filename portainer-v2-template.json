@@ -515,11 +515,9 @@
 			"title": "InfluxDB",
 			"type": 1,
 			"volumes": [
-				"influxdb": [
-					{
-						"container": "/influxdb2"
-					}
-				]
+				{
+					"container": "/influxdb2"
+				}
 			]
 		},
 		{
