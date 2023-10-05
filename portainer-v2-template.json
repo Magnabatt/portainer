@@ -516,7 +516,8 @@
 			"type": 1,
 			"volumes": [
 				{
-					"container": "/influxdb2"
+					influxdb:
+						"container": "/influxdb2"
 				}
 			]
 		},
