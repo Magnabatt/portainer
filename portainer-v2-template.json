@@ -103,6 +103,7 @@
 					"set": ""
 				},
 				{
+					"default": "1234567890",
 					"label": "TOKEN",
 					"name": "TOKEN",
 					"set": ""
@@ -162,6 +163,11 @@
 					"default": "example.my.domain",
 					"label": "PROXY_DOMAIN",
 					"name": "PROXY_DOMAIN"
+				},
+				{
+					"default": "/workspace",
+					"label": "DEFAULT_WORKSPACE",
+					"name": "DEFAULT_WORKSPACE"
 				}
 			],
 			"image": "lscr.io/linuxserver/code-server:latest",
@@ -178,6 +184,10 @@
 				{
 					"bind": "/home/docker/codeserver/config",
 					"container": "/config"
+				},
+				{
+					"bind": "/home/docker/codeserver/workspace",
+					"container": "/workspace"
 				}
 			]
 		},
@@ -192,9 +202,9 @@
 			"name": "nginx-proxy-manager",
 			"platform": "linux",
 			"ports": [
-				"80:8080/tcp",
-				"81:8181/tcp",
-				"443:4443/tcp"
+				"7080:8080/tcp",
+				"7081:8181/tcp",
+				"7443:4443/tcp"
 			],
 			"restart_policy": "unless-stopped",
 			"title": "Nginx Proxy Manager",
@@ -880,6 +890,54 @@
 			"volumes": [
 				{
 					"bind": "/home/docker/mysql/config",
+					"container": "/config"
+				}
+			]
+		},
+		{
+			"categories": [
+				"Management",
+				"Tools"
+			],
+			"description": "Github Desktop is an open source Electron-based GitHub app. It is written in TypeScript and uses React.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "1000",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "Australia/Brisbane",
+					"label": "TZ",
+					"name": "TZ"
+				},
+				{
+					"default": "example",
+					"label": "MYSQL_ROOT_PASSWORD",
+					"name": "MYSQL_ROOT_PASSWORD"
+				}
+			],
+			"image": "lscr.io/linuxserver/github-desktop:latest",
+			"logo": "https://i.imgur.com/mXvb3UO.png",
+			"name": "github-desktop",
+			"platform": "linux",
+			"ports": [
+				"6080:3000/tcp",
+				"6443:3001/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Github Desktop",
+			"type": 1,
+			"cap_add": "IPC_LOCK",
+			"shm_size": "1gb",
+			"volumes": [
+				{
+					"bind": "/home/docker/githubdesktop/config",
 					"container": "/config"
 				}
 			]
