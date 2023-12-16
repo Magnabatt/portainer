@@ -160,7 +160,7 @@
 					"name": "SUDO_PASSWORD"
 				},
 				{
-					"default": "/workspace",
+					"default": "/config/workspace",
 					"label": "DEFAULT_WORKSPACE",
 					"name": "DEFAULT_WORKSPACE"
 				}
@@ -173,7 +173,7 @@
 				"9443:8443/tcp"
 			],
 			"restart_policy": "unless-stopped",
-			"title": "Code Server",
+			"title": "code-server",
 			"type": 1,
 			"volumes": [
 				{
@@ -182,7 +182,7 @@
 				},
 				{
 					"bind": "/home/docker/codeserver/workspace",
-					"container": "/workspace"
+					"container": "/config/workspace"
 				}
 			]
 		},
