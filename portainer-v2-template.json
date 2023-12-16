@@ -812,7 +812,7 @@
 				"Management",
 				"Tools"
 			],
-			"description": "MySQL Workbench is a unified visual tool for database architects, developers, and DBAs. MySQL Workbench provides data modeling, SQL development, and comprehensive administration tools for server configuration, user administration, backup, and much more.",
+			"description": "Phpmyadmin is a free software tool written in PHP, intended to handle the administration of MySQL over the Web. phpMyAdmin supports a wide range of operations on MySQL and MariaDB.",
 			"env": [
 				{
 					"default": "1000",
@@ -830,21 +830,20 @@
 					"name": "TZ"
 				}
 			],
-			"image": "lscr.io/linuxserver/mysql-workbench:latest",
-			"logo": "https://i.imgur.com/OYHIrZb.png",
-			"name": "mysql-workbench",
+			"image": "lscr.io/linuxserver/phpmyadmin:latest",
+			"logo": "https://i.imgur.com/5TY0Bq1.png",
+			"name": "phpmyadmin",
 			"platform": "linux",
 			"ports": [
-				"3080:3000/tcp",
-				"3443:3001/tcp"
+				"3080:80/tcp"
 			],
 			"restart_policy": "unless-stopped",
-			"title": "MySQL Workbench",
+			"title": "phpmyadmin",
 			"type": 1,
 			"cap_add": "IPC_LOCK",
 			"volumes": [
 				{
-					"bind": "/home/docker/mysqlworkbench/config",
+					"bind": "/home/docker/phpmyadmin/config",
 					"container": "/config"
 				}
 			]
