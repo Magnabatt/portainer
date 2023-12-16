@@ -769,18 +769,18 @@
 			"name": "NextCloud",
 			"platform": "linux",
 			"ports": [
-				"443:4443/tcp"
+				"4443:443/tcp"
 			],
 			"restart_policy": "unless-stopped",
 			"title": "NextCloud",
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/docker/nextcloud",
+					"bind": "/home/docker/nextcloud/config",
 					"container": "/config"
 				},
 				{
-					"bind": "/docker/nextcloud",
+					"bind": "/home/docker/nextcloud/data",
 					"container": "/data"
 				}
 			]
