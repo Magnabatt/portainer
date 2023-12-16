@@ -140,7 +140,7 @@
 					"name": "PUID"
 				},
 				{
-					"default": "100",
+					"default": "1000",
 					"label": "PGID",
 					"name": "PGID"
 				},
@@ -158,6 +158,11 @@
 					"default": "password",
 					"label": "SUDO_PASSWORD",
 					"name": "SUDO_PASSWORD"
+				},
+				{
+					"default": "/workspace",
+					"label": "DEFAULT_WORKSPACE",
+					"name": "DEFAULT_WORKSPACE"
 				}
 			],
 			"image": "lscr.io/linuxserver/code-server:latest",
@@ -165,7 +170,7 @@
 			"name": "code-server",
 			"platform": "linux",
 			"ports": [
-				"9443:8443/tcp"
+				"5443:8443/tcp"
 			],
 			"restart_policy": "unless-stopped",
 			"title": "code-server",
@@ -174,6 +179,10 @@
 				{
 					"bind": "/home/docker/codeserver/config",
 					"container": "/config"
+				},
+				{
+					"bind": "/home/docker",
+					"container": "/workspace"
 				}
 			]
 		},
