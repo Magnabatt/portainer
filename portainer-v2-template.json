@@ -828,6 +828,16 @@
 					"default": "Australia/Brisbane",
 					"label": "TZ",
 					"name": "TZ"
+				},
+				{
+					"default": "3306",
+					"label": "PMA_PORT",
+					"name": "PMA_PORT"
+				},
+				{
+					"default": "localhost",
+					"label": "PMA_HOST",
+					"name": "PMA_HOST"
 				}
 			],
 			"image": "lscr.io/linuxserver/phpmyadmin:latest",
