@@ -140,7 +140,7 @@
 					"name": "PUID"
 				},
 				{
-					"default": "1000",
+					"default": "100",
 					"label": "PGID",
 					"name": "PGID"
 				},
@@ -158,14 +158,9 @@
 					"default": "password",
 					"label": "SUDO_PASSWORD",
 					"name": "SUDO_PASSWORD"
-				},
-				{
-					"default": "/config/workspace",
-					"label": "DEFAULT_WORKSPACE",
-					"name": "DEFAULT_WORKSPACE"
 				}
 			],
-			"image": "lscr.io/linuxserver/code-server",
+			"image": "lscr.io/linuxserver/code-server:latest",
 			"logo": "https://i.imgur.com/UY3X5Xd.png",
 			"name": "code-server",
 			"platform": "linux",
@@ -179,10 +174,6 @@
 				{
 					"bind": "/home/docker/codeserver/config",
 					"container": "/config"
-				},
-				{
-					"bind": "/home/docker/codeserver/workspace",
-					"container": "/config/workspace"
 				}
 			]
 		},
