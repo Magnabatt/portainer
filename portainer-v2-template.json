@@ -3,7 +3,7 @@
 	"templates": [
 		{
 			"categories": [
-				"Tools",
+				"Management",
 				"Web"
 			],
 			"description": "Heimdall is a way to organise all those links to your most used web sites and web applications in a simple way.",
@@ -14,13 +14,13 @@
 					"name": "PUID"
 				},
 				{
-					"default": "100",
+					"default": "1000",
 					"label": "PGID",
 					"name": "PGID"
 				}
 			],
 			"image": "lscr.io/linuxserver/heimdall:latest",
-			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/heimdall-icon.png",
+			"logo": "https://i.imgur.com/LQvm8Zj.png",
 			"name": "heimdall",
 			"platform": "linux",
 			"ports": [
@@ -32,6 +32,7 @@
 			"type": 1,
 			"volumes": [
 				{
+					"bind": "/home/docker/heimdall/config",
 					"container": "/config"
 				}
 			]
@@ -48,7 +49,7 @@
 					"name": "PUID"
 				},
 				{
-					"default": "100",
+					"default": "1000",
 					"label": "PGID",
 					"name": "PGID"
 				},
@@ -73,7 +74,7 @@
 				}
 			],
 			"image": "mitchtalmadge/amp-dockerized",
-			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/cubecoders.png",
+			"logo": "https://i.imgur.com/PfGXDtd.png",
 			"name": "amp",
 			"platform": "linux",
 			"ports": [
@@ -84,6 +85,7 @@
 			"type": 1,
 			"volumes": [
 				{
+					"bind": "/home/docker/cubecoders/config",
 					"container": "/appdata/amp"
 				}
 			]
@@ -111,13 +113,13 @@
 					"name": "PUID"
 				},
 				{
-					"default": "100",
+					"default": "1000",
 					"label": "PGID",
 					"name": "PGID"
 				}
 			],
 			"image": "lscr.io/linuxserver/duckdns:latest",
-			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/duckdns.png",
+			"logo": "https://i.imgur.com/6jlWAKH.png",
 			"name": "duckdns",
 			"platform": "linux",
 			"restart_policy": "unless-stopped",
@@ -126,7 +128,7 @@
 		},
 		{
 			"categories": [
-				"Other",
+				"Development",
 				"Tools"
 			],
 			"description": "Code-server is VS Code running on a remote server, accessible through the browser.",
@@ -163,7 +165,7 @@
 				}
 			],
 			"image": "lscr.io/linuxserver/code-server:latest",
-			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/code-server.png",
+			"logo": "https://i.imgur.com/UY3X5Xd.png",
 			"name": "code-server",
 			"platform": "linux",
 			"ports": [
@@ -174,6 +176,7 @@
 			"type": 1,
 			"volumes": [
 				{
+					"bind": "/home/docker/codeserver/config",
 					"container": "/config"
 				}
 			]
@@ -185,7 +188,7 @@
 			],
 			"description": "Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.",
 			"image": "jlesage/nginx-proxy-manager",
-			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/proxy_mgr.png",
+			"logo": "https://i.imgur.com/2fVgr2A.png",
 			"name": "nginx-proxy-manager",
 			"platform": "linux",
 			"ports": [
@@ -198,7 +201,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/portainer/Files/AppData/Config/Nginx-Proxy",
+					"bind": "/home/docker/proxymanager/config",
 					"container": "/config"
 				}
 			]
@@ -227,7 +230,7 @@
 				}
 			],
 			"image": "lscr.io/linuxserver/radarr:latest",
-			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/radarr.png",
+			"logo": "https://i.imgur.com/YqHgVXn.png",
 			"name": "radarr",
 			"platform": "linux",
 			"ports": [
@@ -238,6 +241,7 @@
 			"type": 1,
 			"volumes": [
 				{
+					"bind": "/home/docker/radarr/config",
 					"container": "/config"
 				},
 				{
@@ -274,7 +278,7 @@
 				}
 			],
 			"image": "lscr.io/linuxserver/sonarr:latest",
-			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/sonarr-icon.png",
+			"logo": "https://i.imgur.com/DB1loRO.png",
 			"name": "sonarr",
 			"platform": "linux",
 			"ports": [
@@ -285,7 +289,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/portainer/Files/AppData/Config/Sonarr",
+					"bind": "/home/docker/sonarr/config",
 					"container": "/config"
 				},
 				{
@@ -315,13 +319,13 @@
 					"name": "PUID"
 				},
 				{
-					"default": "100",
+					"default": "1000",
 					"label": "PGID",
 					"name": "PGID"
 				}
 			],
 			"image": "lscr.io/linuxserver/tautulli:latest",
-			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/tautulli-icon.png",
+			"logo": "https://i.imgur.com/XojvBNM.png",
 			"name": "tautulli",
 			"platform": "linux",
 			"ports": [
@@ -332,11 +336,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/portainer/Logs",
+					"bind": "/home/docker/tautulli/logs",
 					"container": "/logs"
 				},
 				{
-					"bind": "/portainer/Files/AppData/Config/Tautulli",
+					"bind": "/home/docker/tautulli/config",
 					"container": "/config"
 				}
 			]
@@ -354,13 +358,13 @@
 					"name": "PUID"
 				},
 				{
-					"default": "100",
+					"default": "1000",
 					"label": "PGID",
 					"name": "PGID"
 				}
 			],
 			"image": "lscr.io/linuxserver/tvheadend:latest",
-			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/tvheadend-big.png",
+			"logo": "https://i.imgur.com/0rfZA5x.png",
 			"name": "tvheadend",
 			"platform": "linux",
 			"ports": [
@@ -372,10 +376,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/portainer/Files/AppData/Config/TVHeadend",
+					"bind": "/home/docker/tvheadend/config",
 					"container": "/config"
 				},
 				{
+					"bind": "/home/docker/tvheadend/recordings",
 					"container": "/recordings"
 				}
 			]
@@ -393,7 +398,7 @@
 					"name": "PUID"
 				},
 				{
-					"default": "100",
+					"default": "1000",
 					"label": "PGID",
 					"name": "PGID"
 				},
@@ -429,7 +434,7 @@
 				}
 			],
 			"image": "lscr.io/linuxserver/plex-meta-manager:latest",
-			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/plex-meta-manager.png",
+			"logo": "https://i.imgur.com/0wApPGJ.png",
 			"name": "Plex-meta-manager",
 			"platform": "linux",
 			"restart_policy": "unless-stopped",
@@ -437,7 +442,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/portainer/Files/AppData/Config/Plex-meta-manager",
+					"bind": "/home/docker/plexmetamanager/config",
 					"container": "/config"
 				}
 			]
@@ -455,7 +460,7 @@
 					"name": "PUID"
 				},
 				{
-					"default": "100",
+					"default": "1000",
 					"label": "PGID",
 					"name": "PGID"
 				},
@@ -466,7 +471,7 @@
 				}
 			],
 			"image": "lscr.io/linuxserver/overseerr:latest",
-			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/overseerr.png",
+			"logo": "https://i.imgur.com/e4pSGyc.png",
 			"name": "overseerr",
 			"platform": "linux",
 			"ports": [
@@ -477,6 +482,7 @@
 			"type": 1,
 			"volumes": [
 				{
+					"bind": "/home/docker/overseerr/config",
 					"container": "/config"
 				}
 			]
@@ -494,7 +500,7 @@
 					"name": "PUID"
 				},
 				{
-					"default": "100",
+					"default": "1000",
 					"label": "PGID",
 					"name": "PGID"
 				},
@@ -505,7 +511,7 @@
 				}
 			],
 			"image": "influxdb:latest",
-			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/influxdb.png",
+			"logo": "https://i.imgur.com/qS0rojn.png",
 			"name": "influxdb",
 			"platform": "linux",
 			"ports": [
@@ -516,6 +522,7 @@
 			"type": 1,
 			"volumes": [
 				{
+					"bind": "/home/docker/influxdb/influxdb2",
 					"container": "/influxdb2"
 				}
 			]
@@ -533,7 +540,7 @@
 					"name": "PUID"
 				},
 				{
-					"default": "100",
+					"default": "1000",
 					"label": "PGID",
 					"name": "PGID"
 				},
@@ -544,7 +551,7 @@
 				}
 			],
 			"image": "grafana/grafana",
-			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/Grafana.png",
+			"logo": "https://i.imgur.com/f4jIQlw.png",
 			"name": "grafana",
 			"platform": "linux",
 			"ports": [
@@ -555,6 +562,7 @@
 			"type": 1,
 			"volumes": [
 				{
+					"bind": "/home/docker/grafana/config",
 					"container": "/config"
 				}
 			]
@@ -572,7 +580,7 @@
 					"name": "PUID"
 				},
 				{
-					"default": "100",
+					"default": "1000",
 					"label": "PGID",
 					"name": "PGID"
 				},
@@ -583,7 +591,7 @@
 				}
 			],
 			"image": "redis/redis-stack:latest",
-			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/redis.png",
+			"logo": "https://i.imgur.com/Tc9lMF4.png",
 			"name": "redis-stack",
 			"platform": "linux",
 			"ports": [
@@ -595,6 +603,7 @@
 			"type": 1,
 			"volumes": [
 				{
+					"bind": "/home/docker/redisstack/config",
 					"container": "/config"
 				}
 			]
@@ -633,7 +642,7 @@
 				}
 			],
 			"image": "mongo:4.4.18",
-			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/mongodb.png",
+			"logo": "https://i.imgur.com/eOdNNJl.png",
 			"name": "mongodb",
 			"platform": "linux",
 			"ports": [
@@ -644,6 +653,7 @@
 			"type": 1,
 			"volumes": [
 				{
+					"bind": "/home/docker/mongodb/db",
 					"container": "/data/db"
 				}
 			]
@@ -687,7 +697,7 @@
 				}
 			],
 			"image": "mongo-express:latest",
-			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/mongo-express.png",
+			"logo": "https://i.imgur.com/kyIVrGB.png",
 			"name": "mongo-express",
 			"platform": "linux",
 			"ports": [
@@ -698,6 +708,7 @@
 			"type": 1,
 			"volumes": [
 				{
+					"bind": "/home/docker/mongoexpress/config",
 					"container": "/config"
 				}
 			]
@@ -726,7 +737,7 @@
 				}
 			],
 			"image": "dnsforge/xteve:latest",
-			"logo": "https://raw.githubusercontent.com/Magnabatt/portainer/main/Images/xTeVe.png",
+			"logo": "https://i.imgur.com/59mMdmj.png",
 			"name": "xTeVe",
 			"platform": "linux",
 			"ports": [
@@ -737,6 +748,7 @@
 			"type": 1,
 			"volumes": [
 				{
+					"bind": "/home/docker/xteve/config",
 					"container": "/config"
 				}
 			]
@@ -782,6 +794,93 @@
 				{
 					"bind": "/home/docker/nextcloud/data",
 					"container": "/data"
+				}
+			]
+		},
+		{
+			"categories": [
+				"Management",
+				"Tools"
+			],
+			"description": "MySQL Workbench is a unified visual tool for database architects, developers, and DBAs. MySQL Workbench provides data modeling, SQL development, and comprehensive administration tools for server configuration, user administration, backup, and much more.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "1000",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "Australia/Brisbane",
+					"label": "TZ",
+					"name": "TZ"
+				}
+			],
+			"image": "lscr.io/linuxserver/mysql-workbench:latest",
+			"logo": "https://i.imgur.com/OYHIrZb.png",
+			"name": "mysql-workbench",
+			"platform": "linux",
+			"ports": [
+				"3080:3000/tcp",
+				"3443:3001/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "MySQL Workbench",
+			"type": 1,
+			"cap_add": "IPC_LOCK",
+			"volumes": [
+				{
+					"bind": "/home/docker/mysqlworkbench/config",
+					"container": "/config"
+				}
+			]
+		},
+		{
+			"categories": [
+				"Management",
+				"Tools"
+			],
+			"description": "MySQL is the world's most popular open source database. With its proven performance, reliability and ease-of-use, MySQL has become the leading database choice for web-based applications, covering the entire range from personal projects and websites, via e-commerce and information services, all the way to high profile web properties including Facebook, Twitter, YouTube, Yahoo! and many more.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "1000",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "Australia/Brisbane",
+					"label": "TZ",
+					"name": "TZ"
+				},
+				{
+					"default": "example",
+					"label": "MYSQL_ROOT_PASSWORD",
+					"name": "MYSQL_ROOT_PASSWORD"
+				}
+			],
+			"image": "mysql:latest",
+			"logo": "https://i.imgur.com/JJCbSsr.png",
+			"name": "mysql",
+			"platform": "linux",
+			"ports": [
+				"3306:3306/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "MySQL",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/home/docker/mysql/config",
+					"container": "/config"
 				}
 			]
 		}
