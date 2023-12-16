@@ -740,6 +740,50 @@
 					"container": "/config"
 				}
 			]
+		},
+		{
+			"categories": [
+				"Files",
+				"Tools"
+			],
+			"description": "Nextcloud is a suite of client-server software for creating and using file hosting services. Nextcloud provides functionality similar to Dropbox, Office 365 or Google Drive when used with integrated office suites Collabora Online or OnlyOffice. It can be hosted in the cloud or on-premises.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "1000",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "Australia/Brisbane",
+					"label": "TZ",
+					"name": "TZ"
+				}
+			],
+			"image": "lscr.io/linuxserver/nextcloud:latest",
+			"logo": "https://i.imgur.com/X875ctb.png",
+			"name": "NextCloud",
+			"platform": "linux",
+			"ports": [
+				"443:4443/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "NextCloud",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/docker/nextcloud",
+					"container": "/config"
+				},
+				{
+					"bind": "/docker/nextcloud",
+					"container": "/data"
+				}
+			]
 		}
 	]
 }
