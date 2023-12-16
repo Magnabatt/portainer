@@ -165,7 +165,7 @@
 					"name": "DEFAULT_WORKSPACE"
 				}
 			],
-			"image": "lscr.io/linuxserver/code-server:latest",
+			"image": "linuxserver/code-server:latest",
 			"logo": "https://i.imgur.com/UY3X5Xd.png",
 			"name": "code-server",
 			"platform": "linux",
