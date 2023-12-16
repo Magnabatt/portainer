@@ -140,7 +140,7 @@
 					"name": "PUID"
 				},
 				{
-					"default": "1000",
+					"default": "100",
 					"label": "PGID",
 					"name": "PGID"
 				},
