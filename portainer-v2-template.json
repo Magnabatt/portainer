@@ -901,49 +901,6 @@
 		{
 			"categories": [
 				"Management",
-				"Tools"
-			],
-			"description": "Github Desktop is an open source Electron-based GitHub app. It is written in TypeScript and uses React.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "Australia/Brisbane",
-					"label": "TZ",
-					"name": "TZ"
-				}
-			],
-			"image": "lscr.io/linuxserver/github-desktop:latest",
-			"logo": "https://i.imgur.com/mXvb3UO.png",
-			"name": "github-desktop",
-			"platform": "linux",
-			"ports": [
-				"6080:3000/tcp",
-				"6443:3001/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Github Desktop",
-			"type": 1,
-			"cap_add": "IPC_LOCK",
-			"shm_size": "1gb",
-			"volumes": [
-				{
-					"bind": "/home/docker/githubdesktop/config",
-					"container": "/config"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Management",
 				"Projects"
 			],
 			"description": "OpenProject is a web-based project management system for location-independent team collaboration. It is a free open-source application, released under the GNU Version 3, and is available as a community edition and a chargeable Enterprise Edition.",
