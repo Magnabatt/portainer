@@ -926,7 +926,7 @@
 					"name": "OPENPROJECT_SECRET_KEY_BASE"
 				},
 				{
-					"default": "localhost:2080",
+					"default": "",
 					"label": "OPENPROJECT_HOST__NAME",
 					"name": "OPENPROJECT_HOST__NAME"
 				},
@@ -941,12 +941,12 @@
 					"name": "OPENPROJECT_DEFAULT__LANGUAGE"
 				}
 			],
-			"image": "openproject/community:latest",
+			"image": "openproject/community:13",
 			"logo": "https://i.imgur.com/2uWqYpR.png",
 			"name": "openproject",
 			"platform": "linux",
 			"ports": [
-				"2080:80/tcp"
+				"9080:80/tcp"
 			],
 			"restart_policy": "unless-stopped",
 			"title": "openproject",
