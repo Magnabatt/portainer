@@ -1003,6 +1003,92 @@
 					"container": "/etc/cloudflared"
 				}
 			]
+		},
+		{
+			"categories": [
+				"Network",
+				"Testing"
+			],
+			"description": "This program runs a speedtest check every hour and graphs the results. The back-end is written in Laravel and the front-end uses React. It uses the Ookla's speedtest cli package to get the data and uses Chart.js to plot the results.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "1000",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "Australia/Brisbane",
+					"label": "TZ",
+					"name": "TZ"
+				},
+				{
+					"default": "true",
+					"label": "OOKLA_EULA_GDPR",
+					"name": "OOKLA_EULA_GDPR"
+				}
+			],
+			"image": "henrywhitaker3/speedtest-tracker:latest",
+			"logo": "https://i.imgur.com/CrgUxmH.png",
+			"name": "Speedtest Tracker",
+			"platform": "linux",
+			"ports": [
+				"8765:80/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Speedtest Tracker",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/home/docker/speedtesttracker/config",
+					"container": "/config"
+				}
+			]
+		},
+		{
+			"categories": [
+				"Network",
+				"Testing"
+			],
+			"description": "SpeedTest by OpenSpeedTest™ is a Free and Open-Source HTML5 Network Performance Estimation Tool Written in Vanilla Javascript and only uses built-in Web APIs.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "1000",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "Australia/Brisbane",
+					"label": "TZ",
+					"name": "TZ"
+				}
+			],
+			"image": "openspeedtest/latest:latest",
+			"logo": "https://i.imgur.com/HBK1BnZ.png",
+			"name": "Openspeed Test",
+			"platform": "linux",
+			"ports": [
+				"3780:3000/tcp",
+				"3781:3001/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Openspeed Test",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/home/docker/openspeedtest/config",
+					"container": "/config"
+				}
+			]
 		}
 	]
 }
