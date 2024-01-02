@@ -900,69 +900,6 @@
 		},
 		{
 			"categories": [
-				"Management",
-				"Projects"
-			],
-			"description": "OpenProject is a web-based project management system for location-independent team collaboration. It is a free open-source application, released under the GNU Version 3, and is available as a community edition and a chargeable Enterprise Edition.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "Australia/Brisbane",
-					"label": "TZ",
-					"name": "TZ"
-				},
-				{
-					"default": "secret",
-					"label": "OPENPROJECT_SECRET_KEY_BASE",
-					"name": "OPENPROJECT_SECRET_KEY_BASE"
-				},
-				{
-					"default": "",
-					"label": "OPENPROJECT_HOST__NAME",
-					"name": "OPENPROJECT_HOST__NAME"
-				},
-				{
-					"default": "false",
-					"label": "OPENPROJECT_HTTPS",
-					"name": "OPENPROJECT_HTTPS"
-				},
-				{
-					"default": "en",
-					"label": "OPENPROJECT_DEFAULT__LANGUAGE",
-					"name": "OPENPROJECT_DEFAULT__LANGUAGE"
-				}
-			],
-			"image": "openproject/community:13",
-			"logo": "https://i.imgur.com/2uWqYpR.png",
-			"name": "openproject",
-			"platform": "linux",
-			"ports": [
-				"9080:80/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "openproject",
-			"volumes": [
-				{
-					"bind": "/home/docker/openproject/pgdata",
-					"container": "/pgdata"
-				},
-				{
-					"bind": "/home/docker/openproject/assets",
-					"container": "/assets"
-				}
-			]
-		},
-		{
-			"categories": [
 				"Remote Access",
 				"Tools"
 			],
@@ -1086,6 +1023,66 @@
 			"volumes": [
 				{
 					"bind": "/home/docker/openspeedtest/config",
+					"container": "/config"
+				}
+			]
+		},
+		{
+			"categories": [
+				"Management",
+				"Tool"
+			],
+			"description": "OpenProject is a web-based project management system for location-independent team collaboration. It is a free open-source application, released under the GNU Version 3, and is available as a community edition and a chargeable Enterprise Edition.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "1000",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "Australia/Brisbane",
+					"label": "TZ",
+					"name": "TZ"
+				},
+				{
+					"default": "Secret",
+					"label": "OPENPROJECT_SECRET_KEY_BASE",
+					"name": "OPENPROJECT_SECRET_KEY_BASE"
+				},
+				{
+					"default": "localhost:8780",
+					"label": "OPENPROJECT_HOST__NAME",
+					"name": "OPENPROJECT_HOST__NAME"
+				},
+				{
+					"default": "false",
+					"label": "OPENPROJECT_HTTPS",
+					"name": "OPENPROJECT_HTTPS"
+				},
+				{
+					"default": "en",
+					"label": "OPENPROJECT_DEFAULT__LANGUAGE",
+					"name": "OPENPROJECT_DEFAULT__LANGUAGE"
+				}
+			],
+			"image": "openproject/community:13",
+			"logo": "https://i.imgur.com/2uWqYpR.png",
+			"name": "OpenProject",
+			"platform": "linux",
+			"ports": [
+				"8780:80/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "OpenProject",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/home/docker/openproject/config",
 					"container": "/config"
 				}
 			]
