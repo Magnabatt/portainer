@@ -971,7 +971,7 @@
 			],
 			"image": "henrywhitaker3/speedtest-tracker:latest",
 			"logo": "https://i.imgur.com/CrgUxmH.png",
-			"name": "Speedtest Tracker",
+			"name": "SpeedtestTracker",
 			"platform": "linux",
 			"ports": [
 				"8765:80/tcp"
@@ -1011,7 +1011,7 @@
 			],
 			"image": "openspeedtest/latest:latest",
 			"logo": "https://i.imgur.com/HBK1BnZ.png",
-			"name": "Openspeed Test",
+			"name": "OpenspeedTest",
 			"platform": "linux",
 			"ports": [
 				"3780:3000/tcp",
