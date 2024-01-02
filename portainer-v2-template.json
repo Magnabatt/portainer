@@ -960,6 +960,49 @@
 					"container": "/assets"
 				}
 			]
+		},
+		{
+			"categories": [
+				"Remote Access",
+				"Tools"
+			],
+			"description": "The Tunnel daemon creates an encrypted tunnel between your origin web server and Cloudflare's nearest data center, all without opening any public inbound ports.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "1000",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "Australia/Brisbane",
+					"label": "TZ",
+					"name": "TZ"
+				},
+				{
+					"default": "example",
+					"label": "TUNNEL_TOKEN",
+					"name": "TUNNEL_TOKEN"
+				}
+			],
+			"image": "cloudflare/cloudflared:latest",
+			"logo": "https://i.imgur.com/GQJdWEo.png",
+			"name": "CloudFlared",
+			"platform": "linux",
+			"command": "tunnel run",
+			"restart_policy": "unless-stopped",
+			"title": "CloudFlared",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/home/docker/cloudflared/config",
+					"container": "/etc/cloudflared"
+				}
+			]
 		}
 	]
 }
