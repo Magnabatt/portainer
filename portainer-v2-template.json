@@ -1086,6 +1086,57 @@
 					"container": "/config"
 				}
 			]
+		},
+		{
+			"categories": [
+				"Media",
+				"Server"
+			],
+			"description": "Jellyfin is a free and open-source media server and suite of multimedia applications designed to organize, manage, and share digital media files to networked devices.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "1000",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "Australia/Brisbane",
+					"label": "TZ",
+					"name": "TZ"
+				}
+			],
+			"image": "jellyfin/jellyfin:latest",
+			"logo": "https://i.imgur.com/cODmw4Q.png",
+			"name": "jellyfin",
+			"platform": "linux",
+			"ports": [
+				"8096:8096/tcp",
+				"8920:8920/tcp",
+				"1900:1900/udp",
+				"7359:7359/udp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Jellyfin",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/home/docker/jellyfin/config",
+					"container": "/config"
+				},
+				{
+					"bind": "/home/docker/jellyfin/cache",
+					"container": "/cache"
+				},
+				{
+					"bind": "/home/docker/jellyfin/media",
+					"container": "/media"
+				}
+			]
 		}
 	]
 }
