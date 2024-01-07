@@ -1,1142 +1,1233 @@
 {
-	"version": "2",
-	"templates": [
-		{
-			"categories": [
-				"Management",
-				"Web"
-			],
-			"description": "Heimdall is a way to organise all those links to your most used web sites and web applications in a simple way.",
+    "version": "2",
+    "templates": [
+        {
+            "categories": [
+                "Management",
+                "Web"
+            ],
+            "description": "Heimdall is a way to organise all those links to your most used web sites and web applications in a simple way.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                }
+            ],
+            "image": "lscr.io/linuxserver/heimdall:latest",
+            "logo": "https://i.imgur.com/LQvm8Zj.png",
+            "name": "heimdall",
+            "platform": "linux",
+            "ports": [
+                "8080:80/tcp",
+                "8443:443/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "Heimdall",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/heimdall/config",
+                    "container": "/config"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Games"
+            ],
+            "description": "AMP (Application Management Panel) is a simple to use and easy to install control panel and management system for hosting game servers. ",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                },
+                {
+                    "default": "admin",
+                    "label": "USERNAME",
+                    "name": "USERNAME"
+                },
+                {
+                    "default": "password",
+                    "label": "PASSWORD",
+                    "name": "PASSWORD"
+                },
+                {
+                    "label": "LICENCE",
+                    "name": "LICENCE"
+                }
+            ],
+            "image": "mitchtalmadge/amp-dockerized",
+            "logo": "https://i.imgur.com/PfGXDtd.png",
+            "name": "amp",
+            "platform": "linux",
+            "ports": [
+                "6080:8080/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "AMP (Application Management Panel)",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/cubecoders/config",
+                    "container": "/appdata/amp"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "DNS",
+                "Tools"
+            ],
+            "description": "Duck DNS is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free, and doesn't require reactivation or forum posts to maintain its existence.\r\n\r\nFirst, go to duckdns site, register your subdomain and retrieve your token\r\nThen run the docker create command above with your subdomain(s) and token\r\nIt will update your IP with the DuckDNS service every 5 minutes\r\n\r\n",
+            "env": [
+                {
+                    "label": "SUBDOMAINS",
+                    "name": "SUBDOMAINS",
+                    "set": ""
+                },
+                {
+                    "default": "1234567890",
+                    "label": "TOKEN",
+                    "name": "TOKEN",
+                    "set": ""
+                },
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                }
+            ],
+            "image": "lscr.io/linuxserver/duckdns:latest",
+            "logo": "https://i.imgur.com/6jlWAKH.png",
+            "name": "duckdns",
+            "platform": "linux",
+            "restart_policy": "unless-stopped",
+            "title": "Duck DNS",
+            "type": 1
+        },
+        {
+            "categories": [
+                "Development",
+                "Tools"
+            ],
+            "description": "Code-server is VS Code running on a remote server, accessible through the browser.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                },
+                {
+                    "default": "password",
+                    "label": "PASSWORD",
+                    "name": "PASSWORD"
+                },
+                {
+                    "default": "password",
+                    "label": "SUDO_PASSWORD",
+                    "name": "SUDO_PASSWORD"
+                },
+                {
+                    "default": "/workspace",
+                    "label": "DEFAULT_WORKSPACE",
+                    "name": "DEFAULT_WORKSPACE"
+                }
+            ],
+            "image": "lscr.io/linuxserver/code-server:latest",
+            "logo": "https://i.imgur.com/UY3X5Xd.png",
+            "name": "code-server",
+            "platform": "linux",
+            "ports": [
+                "5443:8443/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "code-server",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/codeserver/config",
+                    "container": "/config"
+                },
+                {
+                    "bind": "/home/docker",
+                    "container": "/workspace"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Proxy",
+                "Tools"
+            ],
+            "description": "Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.",
+            "image": "jlesage/nginx-proxy-manager",
+            "logo": "https://i.imgur.com/2fVgr2A.png",
+            "name": "nginx-proxy-manager",
+            "platform": "linux",
+            "ports": [
+                "7080:8080/tcp",
+                "7081:8181/tcp",
+                "7443:4443/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "Nginx Proxy Manager",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/proxymanager/config",
+                    "container": "/config"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Downloaders",
+                "Video"
+            ],
+            "description": "Radarr - A fork of Sonarr to work with movies à la Couchpotato.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "100",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                }
+            ],
+            "image": "lscr.io/linuxserver/radarr:latest",
+            "logo": "https://i.imgur.com/YqHgVXn.png",
+            "name": "radarr",
+            "platform": "linux",
+            "ports": [
+                "7878:7878/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "Radarr",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/radarr/config",
+                    "container": "/config"
+                },
+                {
+                    "bind": "/mnt/plex",
+                    "container": "/plex"
+                },
+                {
+                    "bind": "/mnt/completed",
+                    "container": "/completed"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Downloaders",
+                "Video"
+            ],
+            "description": "Sonarr (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "100",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                }
+            ],
+            "image": "lscr.io/linuxserver/sonarr:latest",
+            "logo": "https://i.imgur.com/DB1loRO.png",
+            "name": "sonarr",
+            "platform": "linux",
+            "ports": [
+                "8989:8989/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "Sonarr",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/sonarr/config",
+                    "container": "/config"
+                },
+                {
+                    "bind": "/dev/rtc",
+                    "container": "/dev/rtc"
+                },
+                {
+                    "bind": "/portainer/TV",
+                    "container": "/tv"
+                },
+                {
+                    "bind": "/portainer/Downloads",
+                    "container": "/downloads"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Video",
+                "Tools"
+            ],
+            "description": "Tautulli is a 3rd party application that you can run along side your Plex Media Server to monitor activity and track various statistics. Most importantly, these statistics include what has been watched, who watched it, when and where they watched it, and how it was watched. All statistics are presented in a nice and clean interface with many tables and graphs, which makes it easy to brag about your server to everyone else.[br][br]\r\n  [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]\r\n  [b]8181[/b] The webui for Tautulli's webui [br]\r\n  [b]/config[/b] Storing Configuration and the Tautulli database[br]\r\n[b]/logs[/b] Map to you plex logs (required for IP logging)[br]\r\n\r\n",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                }
+            ],
+            "image": "lscr.io/linuxserver/tautulli:latest",
+            "logo": "https://i.imgur.com/XojvBNM.png",
+            "name": "tautulli",
+            "platform": "linux",
+            "ports": [
+                "8181:8181/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "Tautulli",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/tautulli/logs",
+                    "container": "/logs"
+                },
+                {
+                    "bind": "/home/docker/tautulli/config",
+                    "container": "/config"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Video",
+                "Other"
+            ],
+            "description": "Tvheadend is a TV streaming server and recorder for Linux, FreeBSD and Android supporting DVB-S, DVB-S2, DVB-C, DVB-T, ATSC, ISDB-T, IPTV, SAT&gt;IP and HDHomeRun as input sources.\r\nTvheadend offers the HTTP (VLC, MPlayer), HTSP (Kodi, Movian) and SAT&gt;IP streaming.\r\nMultiple EPG sources are supported (over-the-air DVB and ATSC including OpenTV DVB extensions, XMLTV, PyXML).",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                }
+            ],
+            "image": "lscr.io/linuxserver/tvheadend:latest",
+            "logo": "https://i.imgur.com/0rfZA5x.png",
+            "name": "tvheadend",
+            "platform": "linux",
+            "ports": [
+                "9981:9981/tcp",
+                "9982:9982/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "Tvheadend",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/tvheadend/config",
+                    "container": "/config"
+                },
+                {
+                    "bind": "/home/docker/tvheadend/recordings",
+                    "container": "/recordings"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Video",
+                "Tools"
+            ],
+            "description": "Plex-meta-manager is a Python 3 script that can be continuously run using YAML configuration files to update on a schedule the metadata of the movies, shows, and collections in your libraries as well as automatically build collections based on various methods all detailed in the wiki.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                },
+                {
+                    "default": "/config/config.yml",
+                    "label": "PMM_CONFIG",
+                    "name": "PMM_CONFIG"
+                },
+                {
+                    "default": "0:30",
+                    "label": "PMM_TIME",
+                    "name": "PMM_TIME"
+                },
+                {
+                    "default": "False",
+                    "label": "PMM_RUN",
+                    "name": "PMM_RUN"
+                },
+                {
+                    "default": "False",
+                    "label": "PMM_TEST",
+                    "name": "PMM_TEST"
+                },
+                {
+                    "default": "False",
+                    "label": "PMM_NO_MISSING",
+                    "name": "PMM_NO_MISSING"
+                }
+            ],
+            "image": "lscr.io/linuxserver/plex-meta-manager:latest",
+            "logo": "https://i.imgur.com/0wApPGJ.png",
+            "name": "Plex-meta-manager",
+            "platform": "linux",
+            "restart_policy": "unless-stopped",
+            "title": "Plex-meta-manager",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/plexmetamanager/config",
+                    "container": "/config"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Video",
+                "Tools"
+            ],
+            "description": "Overseerr is a request management and media discovery tool built to work with your existing Plex ecosystem.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                }
+            ],
+            "image": "lscr.io/linuxserver/overseerr:latest",
+            "logo": "https://i.imgur.com/e4pSGyc.png",
+            "name": "overseerr",
+            "platform": "linux",
+            "ports": [
+                "5055:5055/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "Overseerr",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/overseerr/config",
+                    "container": "/config"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Database",
+                "Tools"
+            ],
+            "description": "InfluxDB is a time series database built from the ground up to handle high write and query loads. InfluxDB is meant to be used as a backing store for any use case involving large amounts of timestamped data, including DevOps monitoring, application metrics, IoT sensor data, and real-time analytics.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                }
+            ],
+            "image": "influxdb:latest",
+            "logo": "https://i.imgur.com/qS0rojn.png",
+            "name": "influxdb",
+            "platform": "linux",
+            "ports": [
+                "8086:8086/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "InfluxDB",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/influxdb/influxdb2",
+                    "container": "/influxdb2"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Dashboard",
+                "Tools"
+            ],
+            "description": "Grafana is a multi-platform open source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                }
+            ],
+            "image": "grafana/grafana",
+            "logo": "https://i.imgur.com/f4jIQlw.png",
+            "name": "grafana",
+            "platform": "linux",
+            "ports": [
+                "3000:30000/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "Grafana",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/grafana/config",
+                    "container": "/config"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Database",
+                "Tools"
+            ],
+            "description": "Redis is an open-source, networked, in-memory, key-value data store with optional durability. It is written in ANSI C. The development of Redis is sponsored by Redis Labs today; before that, it was sponsored by Pivotal and VMware. According to the monthly ranking by DB-Engines.com, Redis is the most popular key-value store. The name Redis means REmote DIctionary Server.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                }
+            ],
+            "image": "redis/redis-stack:latest",
+            "logo": "https://i.imgur.com/Tc9lMF4.png",
+            "name": "redis-stack",
+            "platform": "linux",
+            "ports": [
+                "6379:6379/tcp",
+                "8001:8001/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "Redis-Stack",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/redisstack/config",
+                    "container": "/config"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Database",
+                "Tools"
+            ],
+            "description": "MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemata.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                },
+                {
+                    "default": "root",
+                    "label": "MONGO_INITDB_ROOT_USERNAME",
+                    "name": "MONGO_INITDB_ROOT_USERNAME"
+                },
+                {
+                    "default": "example",
+                    "label": "MONGO_INITDB_ROOT_PASSWORD",
+                    "name": "MONGO_INITDB_ROOT_PASSWORD"
+                }
+            ],
+            "image": "mongo:4.4.18",
+            "logo": "https://i.imgur.com/eOdNNJl.png",
+            "name": "mongodb",
+            "platform": "linux",
+            "ports": [
+                "27017:27017/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "MongoDB",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/mongodb/db",
+                    "container": "/data/db"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Database",
+                "Tools"
+            ],
+            "description": "Mongo-express is a web-based MongoDB admin interface written in Node.js, Express.js, and Bootstrap3.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                },
+                {
+                    "default": "localhost",
+                    "label": "ME_CONFIG_MONGODB_SERVER",
+                    "name": "ME_CONFIG_MONGODB_SERVER"
+                },
+                {
+                    "default": "root",
+                    "label": "ME_CONFIG_MONGODB_ADMINUSERNAME",
+                    "name": "ME_CONFIG_MONGODB_ADMINUSERNAME"
+                },
+                {
+                    "default": "example",
+                    "label": "ME_CONFIG_MONGODB_ADMINPASSWORD",
+                    "name": "ME_CONFIG_MONGODB_ADMINPASSWORD"
+                }
+            ],
+            "image": "mongo-express:latest",
+            "logo": "https://i.imgur.com/kyIVrGB.png",
+            "name": "mongo-express",
+            "platform": "linux",
+            "ports": [
+                "8081:8081/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "Mongo-Express",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/mongoexpress/config",
+                    "container": "/config"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Media",
+                "Tools"
+            ],
+            "description": "xTeVe is a M3U proxy server for Plex, Emby and any client and provider which supports the .TS and .M3U8 (HLS) streaming formats.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                }
+            ],
+            "image": "dnsforge/xteve:latest",
+            "logo": "https://i.imgur.com/59mMdmj.png",
+            "name": "xTeVe",
+            "platform": "linux",
+            "ports": [
+                "34400:34400/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "xTeVe",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/xteve/config",
+                    "container": "/config"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Management",
+                "Tools"
+            ],
+            "description": "Phpmyadmin is a free software tool written in PHP, intended to handle the administration of MySQL over the Web. phpMyAdmin supports a wide range of operations on MySQL and MariaDB.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                },
+                {
+                    "default": "3306",
+                    "label": "PMA_PORT",
+                    "name": "PMA_PORT"
+                },
+                {
+                    "default": "localhost",
+                    "label": "PMA_HOST",
+                    "name": "PMA_HOST"
+                }
+            ],
+            "image": "lscr.io/linuxserver/phpmyadmin:latest",
+            "logo": "https://i.imgur.com/5TY0Bq1.png",
+            "name": "phpmyadmin",
+            "platform": "linux",
+            "ports": [
+                "3080:80/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "phpmyadmin",
+            "type": 1,
+            "cap_add": "IPC_LOCK",
+            "volumes": [
+                {
+                    "bind": "/home/docker/phpmyadmin/config",
+                    "container": "/config"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Management",
+                "Tools"
+            ],
+            "description": "MySQL is the world's most popular open source database. With its proven performance, reliability and ease-of-use, MySQL has become the leading database choice for web-based applications, covering the entire range from personal projects and websites, via e-commerce and information services, all the way to high profile web properties including Facebook, Twitter, YouTube, Yahoo! and many more.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                },
+                {
+                    "default": "example",
+                    "label": "MYSQL_ROOT_PASSWORD",
+                    "name": "MYSQL_ROOT_PASSWORD"
+                }
+            ],
+            "image": "mysql:latest",
+            "logo": "https://i.imgur.com/JJCbSsr.png",
+            "name": "mysql",
+            "platform": "linux",
+            "ports": [
+                "3306:3306/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "MySQL",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/mysql/config",
+                    "container": "/config"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Remote Access",
+                "Tools"
+            ],
+            "description": "The Tunnel daemon creates an encrypted tunnel between your origin web server and Cloudflare's nearest data center, all without opening any public inbound ports.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                },
+                {
+                    "default": "example",
+                    "label": "TUNNEL_TOKEN",
+                    "name": "TUNNEL_TOKEN"
+                }
+            ],
+            "image": "cloudflare/cloudflared:latest",
+            "logo": "https://i.imgur.com/GQJdWEo.png",
+            "name": "CloudFlared",
+            "platform": "linux",
+            "command": "tunnel run",
+            "restart_policy": "unless-stopped",
+            "title": "CloudFlared",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/cloudflared/config",
+                    "container": "/etc/cloudflared"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Network",
+                "Testing"
+            ],
+            "description": "This program runs a speedtest check every hour and graphs the results. The back-end is written in Laravel and the front-end uses React. It uses the Ookla's speedtest cli package to get the data and uses Chart.js to plot the results.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                },
+                {
+                    "default": "true",
+                    "label": "OOKLA_EULA_GDPR",
+                    "name": "OOKLA_EULA_GDPR"
+                }
+            ],
+            "image": "henrywhitaker3/speedtest-tracker:latest",
+            "logo": "https://i.imgur.com/CrgUxmH.png",
+            "name": "SpeedtestTracker",
+            "platform": "linux",
+            "ports": [
+                "8765:80/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "Speedtest Tracker",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/speedtesttracker/config",
+                    "container": "/config"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Network",
+                "Testing"
+            ],
+            "description": "SpeedTest by OpenSpeedTest™ is a Free and Open-Source HTML5 Network Performance Estimation Tool Written in Vanilla Javascript and only uses built-in Web APIs.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                }
+            ],
+            "image": "openspeedtest/latest:latest",
+            "logo": "https://i.imgur.com/HBK1BnZ.png",
+            "name": "OpenspeedTest",
+            "platform": "linux",
+            "ports": [
+                "3780:3000/tcp",
+                "3781:3001/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "Openspeed Test",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/openspeedtest/config",
+                    "container": "/config"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Management",
+                "Tool"
+            ],
+            "description": "OpenProject is a web-based project management system for location-independent team collaboration. It is a free open-source application, released under the GNU Version 3, and is available as a community edition and a chargeable Enterprise Edition.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                },
+                {
+                    "default": "Secret",
+                    "label": "OPENPROJECT_SECRET_KEY_BASE",
+                    "name": "OPENPROJECT_SECRET_KEY_BASE"
+                },
+                {
+                    "default": "localhost:8780",
+                    "label": "OPENPROJECT_HOST__NAME",
+                    "name": "OPENPROJECT_HOST__NAME"
+                },
+                {
+                    "default": "false",
+                    "label": "OPENPROJECT_HTTPS",
+                    "name": "OPENPROJECT_HTTPS"
+                },
+                {
+                    "default": "en",
+                    "label": "OPENPROJECT_DEFAULT__LANGUAGE",
+                    "name": "OPENPROJECT_DEFAULT__LANGUAGE"
+                }
+            ],
+            "image": "openproject/community:13",
+            "logo": "https://i.imgur.com/2uWqYpR.png",
+            "name": "OpenProject",
+            "platform": "linux",
+            "ports": [
+                "8780:80/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "OpenProject",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/openproject/config",
+                    "container": "/config"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Media",
+                "Server"
+            ],
+            "description": "Jellyfin is a free and open-source media server and suite of multimedia applications designed to organize, manage, and share digital media files to networked devices.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                }
+            ],
+            "image": "jellyfin/jellyfin:latest",
+            "logo": "https://i.imgur.com/cODmw4Q.png",
+            "name": "jellyfin",
+            "platform": "linux",
+            "ports": [
+                "8096:8096/tcp",
+                "8920:8920/tcp",
+                "1900:1900/udp",
+                "7359:7359/udp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "Jellyfin",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/jellyfin/config",
+                    "container": "/config"
+                },
+                {
+                    "bind": "/home/docker/jellyfin/cache",
+                    "container": "/cache"
+                },
+                {
+                    "bind": "/home/docker/jellyfin/media",
+                    "container": "/media"
+                }
+            ]
+        },
+        {
+            "type": 1,
+            "title": "Gitlab CE",
+            "description": "Open-source end-to-end software development platform",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                }
+            ],
+            "note": "Default username is <b>root</b>. Check the <a href=\"https://docs.gitlab.com/omnibus/docker/README.html#after-starting-a-container\" target=\"_blank\">Gitlab documentation</a> to get started.",
+            "categories": [
+                "development",
+                "project-management"
+            ],
+            "platform": "linux",
+            "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/gitlab_ce.png",
+            "image": "gitlab/gitlab-ce:latest",
+            "ports": [
+                "4080/tcp",
+                "4443/tcp",
+                "4022/tcp"
+            ],
+            "volumes": [
+                {
+                    "bind": "/home/docker/gitlab/config",
+                    "container": "/etc/gitlab"
+                },
+                {
+                    "bind": "/home/docker/gitlab/log/gitlab",
+                    "container": "/var/log/gitlab"
+                },
+                {
+                    "bind": "/home/docker/gitlab/opt/gitlab",
+                    "container": "/var/opt/gitlab"
+                }
+            ]
+        },
+        {
+            "type": 1,
+            "title": "RabbitMQ",
+            "description": "Highly reliable enterprise messaging system",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                }
+            ],
+            "categories": [
+                "messaging"
+            ],
+            "platform": "linux",
+            "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/rabbitmq.png",
+            "image": "rabbitmq:latest",
+            "ports": [
+                "5671/tcp",
+                "5672/tcp"
+            ],
+            "volumes": [
+                {
+                    "bind": "/home/docker/rabbitmq/config",
+                    "container": "/var/lib/rabbitmq"
+                }
+            ]
+        },
+        {
+            "type": 1,
+            "title": "File browser",
+            "description": "A web file manager",
 			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				}
-			],
-			"image": "lscr.io/linuxserver/heimdall:latest",
-			"logo": "https://i.imgur.com/LQvm8Zj.png",
-			"name": "heimdall",
-			"platform": "linux",
-			"ports": [
-				"8080:80/tcp",
-				"8443:443/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Heimdall",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/home/docker/heimdall/config",
-					"container": "/config"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Games"
-			],
-			"description": "AMP (Application Management Panel) is a simple to use and easy to install control panel and management system for hosting game servers. ",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "Australia/Brisbane",
-					"label": "TZ",
-					"name": "TZ"
-				},
-				{
-					"default": "admin",
-					"label": "USERNAME",
-					"name": "USERNAME"
-				},
-				{
-					"default": "password",
-					"label": "PASSWORD",
-					"name": "PASSWORD"
-				},
-				{
-					"label": "LICENCE",
-					"name": "LICENCE"
-				}
-			],
-			"image": "mitchtalmadge/amp-dockerized",
-			"logo": "https://i.imgur.com/PfGXDtd.png",
-			"name": "amp",
-			"platform": "linux",
-			"ports": [
-				"6080:8080/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "AMP (Application Management Panel)",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/home/docker/cubecoders/config",
-					"container": "/appdata/amp"
-				}
-			]
-		},
-		{
-			"categories": [
-				"DNS",
-				"Tools"
-			],
-			"description": "Duck DNS is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free, and doesn't require reactivation or forum posts to maintain its existence.\r\n\r\nFirst, go to duckdns site, register your subdomain and retrieve your token\r\nThen run the docker create command above with your subdomain(s) and token\r\nIt will update your IP with the DuckDNS service every 5 minutes\r\n\r\n",
-			"env": [
-				{
-					"label": "SUBDOMAINS",
-					"name": "SUBDOMAINS",
-					"set": ""
-				},
-				{
-					"default": "1234567890",
-					"label": "TOKEN",
-					"name": "TOKEN",
-					"set": ""
-				},
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				}
-			],
-			"image": "lscr.io/linuxserver/duckdns:latest",
-			"logo": "https://i.imgur.com/6jlWAKH.png",
-			"name": "duckdns",
-			"platform": "linux",
-			"restart_policy": "unless-stopped",
-			"title": "Duck DNS",
-			"type": 1
-		},
-		{
-			"categories": [
-				"Development",
-				"Tools"
-			],
-			"description": "Code-server is VS Code running on a remote server, accessible through the browser.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "Australia/Brisbane",
-					"label": "TZ",
-					"name": "TZ"
-				},
-				{
-					"default": "password",
-					"label": "PASSWORD",
-					"name": "PASSWORD"
-				},
-				{
-					"default": "password",
-					"label": "SUDO_PASSWORD",
-					"name": "SUDO_PASSWORD"
-				},
-				{
-					"default": "/workspace",
-					"label": "DEFAULT_WORKSPACE",
-					"name": "DEFAULT_WORKSPACE"
-				}
-			],
-			"image": "lscr.io/linuxserver/code-server:latest",
-			"logo": "https://i.imgur.com/UY3X5Xd.png",
-			"name": "code-server",
-			"platform": "linux",
-			"ports": [
-				"5443:8443/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "code-server",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/home/docker/codeserver/config",
-					"container": "/config"
-				},
-				{
-					"bind": "/home/docker",
-					"container": "/workspace"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Proxy",
-				"Tools"
-			],
-			"description": "Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.",
-			"image": "jlesage/nginx-proxy-manager",
-			"logo": "https://i.imgur.com/2fVgr2A.png",
-			"name": "nginx-proxy-manager",
-			"platform": "linux",
-			"ports": [
-				"7080:8080/tcp",
-				"7081:8181/tcp",
-				"7443:4443/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Nginx Proxy Manager",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/home/docker/proxymanager/config",
-					"container": "/config"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Downloaders",
-				"Video"
-			],
-			"description": "Radarr - A fork of Sonarr to work with movies à la Couchpotato.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "100",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "Australia/Brisbane",
-					"label": "TZ",
-					"name": "TZ"
-				}
-			],
-			"image": "lscr.io/linuxserver/radarr:latest",
-			"logo": "https://i.imgur.com/YqHgVXn.png",
-			"name": "radarr",
-			"platform": "linux",
-			"ports": [
-				"7878:7878/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Radarr",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/home/docker/radarr/config",
-					"container": "/config"
-				},
-				{
-					"bind": "/mnt/plex",
-					"container": "/plex"
-				},
-				{
-					"bind": "/mnt/completed",
-					"container": "/completed"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Downloaders",
-				"Video"
-			],
-			"description": "Sonarr (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "100",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "Australia/Brisbane",
-					"label": "TZ",
-					"name": "TZ"
-				}
-			],
-			"image": "lscr.io/linuxserver/sonarr:latest",
-			"logo": "https://i.imgur.com/DB1loRO.png",
-			"name": "sonarr",
-			"platform": "linux",
-			"ports": [
-				"8989:8989/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Sonarr",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/home/docker/sonarr/config",
-					"container": "/config"
-				},
-				{
-					"bind": "/dev/rtc",
-					"container": "/dev/rtc"
-				},
-				{
-					"bind": "/portainer/TV",
-					"container": "/tv"
-				},
-				{
-					"bind": "/portainer/Downloads",
-					"container": "/downloads"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Video",
-				"Tools"
-			],
-			"description": "Tautulli is a 3rd party application that you can run along side your Plex Media Server to monitor activity and track various statistics. Most importantly, these statistics include what has been watched, who watched it, when and where they watched it, and how it was watched. All statistics are presented in a nice and clean interface with many tables and graphs, which makes it easy to brag about your server to everyone else.[br][br]\r\n  [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]\r\n  [b]8181[/b] The webui for Tautulli's webui [br]\r\n  [b]/config[/b] Storing Configuration and the Tautulli database[br]\r\n[b]/logs[/b] Map to you plex logs (required for IP logging)[br]\r\n\r\n",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				}
-			],
-			"image": "lscr.io/linuxserver/tautulli:latest",
-			"logo": "https://i.imgur.com/XojvBNM.png",
-			"name": "tautulli",
-			"platform": "linux",
-			"ports": [
-				"8181:8181/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Tautulli",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/home/docker/tautulli/logs",
-					"container": "/logs"
-				},
-				{
-					"bind": "/home/docker/tautulli/config",
-					"container": "/config"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Video",
-				"Other"
-			],
-			"description": "Tvheadend is a TV streaming server and recorder for Linux, FreeBSD and Android supporting DVB-S, DVB-S2, DVB-C, DVB-T, ATSC, ISDB-T, IPTV, SAT\u0026gt;IP and HDHomeRun as input sources.\r\nTvheadend offers the HTTP (VLC, MPlayer), HTSP (Kodi, Movian) and SAT\u0026gt;IP streaming.\r\nMultiple EPG sources are supported (over-the-air DVB and ATSC including OpenTV DVB extensions, XMLTV, PyXML).",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				}
-			],
-			"image": "lscr.io/linuxserver/tvheadend:latest",
-			"logo": "https://i.imgur.com/0rfZA5x.png",
-			"name": "tvheadend",
-			"platform": "linux",
-			"ports": [
-				"9981:9981/tcp",
-				"9982:9982/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Tvheadend",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/home/docker/tvheadend/config",
-					"container": "/config"
-				},
-				{
-					"bind": "/home/docker/tvheadend/recordings",
-					"container": "/recordings"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Video",
-				"Tools"
-			],
-			"description": "Plex-meta-manager is a Python 3 script that can be continuously run using YAML configuration files to update on a schedule the metadata of the movies, shows, and collections in your libraries as well as automatically build collections based on various methods all detailed in the wiki.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "Australia/Brisbane",
-					"label": "TZ",
-					"name": "TZ"
-				},
-				{
-					"default": "/config/config.yml",
-					"label": "PMM_CONFIG",
-					"name": "PMM_CONFIG"
-				},
-				{
-					"default": "0:30",
-					"label": "PMM_TIME",
-					"name": "PMM_TIME"
-				},
-				{
-					"default": "False",
-					"label": "PMM_RUN",
-					"name": "PMM_RUN"
-				},
-				{
-					"default": "False",
-					"label": "PMM_TEST",
-					"name": "PMM_TEST"
-				},
-				{
-					"default": "False",
-					"label": "PMM_NO_MISSING",
-					"name": "PMM_NO_MISSING"
-				}
-			],
-			"image": "lscr.io/linuxserver/plex-meta-manager:latest",
-			"logo": "https://i.imgur.com/0wApPGJ.png",
-			"name": "Plex-meta-manager",
-			"platform": "linux",
-			"restart_policy": "unless-stopped",
-			"title": "Plex-meta-manager",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/home/docker/plexmetamanager/config",
-					"container": "/config"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Video",
-				"Tools"
-			],
-			"description": "Overseerr is a request management and media discovery tool built to work with your existing Plex ecosystem.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "Australia/Brisbane",
-					"label": "TZ",
-					"name": "TZ"
-				}
-			],
-			"image": "lscr.io/linuxserver/overseerr:latest",
-			"logo": "https://i.imgur.com/e4pSGyc.png",
-			"name": "overseerr",
-			"platform": "linux",
-			"ports": [
-				"5055:5055/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Overseerr",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/home/docker/overseerr/config",
-					"container": "/config"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Database",
-				"Tools"
-			],
-			"description": "InfluxDB is a time series database built from the ground up to handle high write and query loads. InfluxDB is meant to be used as a backing store for any use case involving large amounts of timestamped data, including DevOps monitoring, application metrics, IoT sensor data, and real-time analytics.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "Australia/Brisbane",
-					"label": "TZ",
-					"name": "TZ"
-				}
-			],
-			"image": "influxdb:latest",
-			"logo": "https://i.imgur.com/qS0rojn.png",
-			"name": "influxdb",
-			"platform": "linux",
-			"ports": [
-				"8086:8086/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "InfluxDB",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/home/docker/influxdb/influxdb2",
-					"container": "/influxdb2"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Dashboard",
-				"Tools"
-			],
-			"description": "Grafana is a multi-platform open source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "Australia/Brisbane",
-					"label": "TZ",
-					"name": "TZ"
-				}
-			],
-			"image": "grafana/grafana",
-			"logo": "https://i.imgur.com/f4jIQlw.png",
-			"name": "grafana",
-			"platform": "linux",
-			"ports": [
-				"3000:30000/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Grafana",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/home/docker/grafana/config",
-					"container": "/config"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Database",
-				"Tools"
-			],
-			"description": "Redis is an open-source, networked, in-memory, key-value data store with optional durability. It is written in ANSI C. The development of Redis is sponsored by Redis Labs today; before that, it was sponsored by Pivotal and VMware. According to the monthly ranking by DB-Engines.com, Redis is the most popular key-value store. The name Redis means REmote DIctionary Server.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "Australia/Brisbane",
-					"label": "TZ",
-					"name": "TZ"
-				}
-			],
-			"image": "redis/redis-stack:latest",
-			"logo": "https://i.imgur.com/Tc9lMF4.png",
-			"name": "redis-stack",
-			"platform": "linux",
-			"ports": [
-				"6379:6379/tcp",
-				"8001:8001/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Redis-Stack",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/home/docker/redisstack/config",
-					"container": "/config"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Database",
-				"Tools"
-			],
-			"description": "MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemata.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "Australia/Brisbane",
-					"label": "TZ",
-					"name": "TZ"
-				},
-				{
-					"default": "root",
-					"label": "MONGO_INITDB_ROOT_USERNAME",
-					"name": "MONGO_INITDB_ROOT_USERNAME"
-				},
-				{
-					"default": "example",
-					"label": "MONGO_INITDB_ROOT_PASSWORD",
-					"name": "MONGO_INITDB_ROOT_PASSWORD"
-				}
-			],
-			"image": "mongo:4.4.18",
-			"logo": "https://i.imgur.com/eOdNNJl.png",
-			"name": "mongodb",
-			"platform": "linux",
-			"ports": [
-				"27017:27017/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "MongoDB",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/home/docker/mongodb/db",
-					"container": "/data/db"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Database",
-				"Tools"
-			],
-			"description": "Mongo-express is a web-based MongoDB admin interface written in Node.js, Express.js, and Bootstrap3.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "Australia/Brisbane",
-					"label": "TZ",
-					"name": "TZ"
-				},
-				{
-					"default": "localhost",
-					"label": "ME_CONFIG_MONGODB_SERVER",
-					"name": "ME_CONFIG_MONGODB_SERVER"
-				},
-				{
-					"default": "root",
-					"label": "ME_CONFIG_MONGODB_ADMINUSERNAME",
-					"name": "ME_CONFIG_MONGODB_ADMINUSERNAME"
-				},
-				{
-					"default": "example",
-					"label": "ME_CONFIG_MONGODB_ADMINPASSWORD",
-					"name": "ME_CONFIG_MONGODB_ADMINPASSWORD"
-				}
-			],
-			"image": "mongo-express:latest",
-			"logo": "https://i.imgur.com/kyIVrGB.png",
-			"name": "mongo-express",
-			"platform": "linux",
-			"ports": [
-				"8081:8081/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Mongo-Express",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/home/docker/mongoexpress/config",
-					"container": "/config"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Media",
-				"Tools"
-			],
-			"description": "xTeVe is a M3U proxy server for Plex, Emby and any client and provider which supports the .TS and .M3U8 (HLS) streaming formats.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "Australia/Brisbane",
-					"label": "TZ",
-					"name": "TZ"
-				}
-			],
-			"image": "dnsforge/xteve:latest",
-			"logo": "https://i.imgur.com/59mMdmj.png",
-			"name": "xTeVe",
-			"platform": "linux",
-			"ports": [
-				"34400:34400/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "xTeVe",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/home/docker/xteve/config",
-					"container": "/config"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Files",
-				"Tools"
-			],
-			"description": "Nextcloud is a suite of client-server software for creating and using file hosting services. Nextcloud provides functionality similar to Dropbox, Office 365 or Google Drive when used with integrated office suites Collabora Online or OnlyOffice. It can be hosted in the cloud or on-premises.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "Australia/Brisbane",
-					"label": "TZ",
-					"name": "TZ"
-				}
-			],
-			"image": "lscr.io/linuxserver/nextcloud:latest",
-			"logo": "https://i.imgur.com/X875ctb.png",
-			"name": "NextCloud",
-			"platform": "linux",
-			"ports": [
-				"4443:443/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "NextCloud",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/home/docker/nextcloud/config",
-					"container": "/config"
-				},
-				{
-					"bind": "/home/docker/nextcloud/data",
-					"container": "/data"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Management",
-				"Tools"
-			],
-			"description": "Phpmyadmin is a free software tool written in PHP, intended to handle the administration of MySQL over the Web. phpMyAdmin supports a wide range of operations on MySQL and MariaDB.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "Australia/Brisbane",
-					"label": "TZ",
-					"name": "TZ"
-				},
-				{
-					"default": "3306",
-					"label": "PMA_PORT",
-					"name": "PMA_PORT"
-				},
-				{
-					"default": "localhost",
-					"label": "PMA_HOST",
-					"name": "PMA_HOST"
-				}
-			],
-			"image": "lscr.io/linuxserver/phpmyadmin:latest",
-			"logo": "https://i.imgur.com/5TY0Bq1.png",
-			"name": "phpmyadmin",
-			"platform": "linux",
-			"ports": [
-				"3080:80/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "phpmyadmin",
-			"type": 1,
-			"cap_add": "IPC_LOCK",
-			"volumes": [
-				{
-					"bind": "/home/docker/phpmyadmin/config",
-					"container": "/config"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Management",
-				"Tools"
-			],
-			"description": "MySQL is the world's most popular open source database. With its proven performance, reliability and ease-of-use, MySQL has become the leading database choice for web-based applications, covering the entire range from personal projects and websites, via e-commerce and information services, all the way to high profile web properties including Facebook, Twitter, YouTube, Yahoo! and many more.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "Australia/Brisbane",
-					"label": "TZ",
-					"name": "TZ"
-				},
-				{
-					"default": "example",
-					"label": "MYSQL_ROOT_PASSWORD",
-					"name": "MYSQL_ROOT_PASSWORD"
-				}
-			],
-			"image": "mysql:latest",
-			"logo": "https://i.imgur.com/JJCbSsr.png",
-			"name": "mysql",
-			"platform": "linux",
-			"ports": [
-				"3306:3306/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "MySQL",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/home/docker/mysql/config",
-					"container": "/config"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Remote Access",
-				"Tools"
-			],
-			"description": "The Tunnel daemon creates an encrypted tunnel between your origin web server and Cloudflare's nearest data center, all without opening any public inbound ports.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "Australia/Brisbane",
-					"label": "TZ",
-					"name": "TZ"
-				},
-				{
-					"default": "example",
-					"label": "TUNNEL_TOKEN",
-					"name": "TUNNEL_TOKEN"
-				}
-			],
-			"image": "cloudflare/cloudflared:latest",
-			"logo": "https://i.imgur.com/GQJdWEo.png",
-			"name": "CloudFlared",
-			"platform": "linux",
-			"command": "tunnel run",
-			"restart_policy": "unless-stopped",
-			"title": "CloudFlared",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/home/docker/cloudflared/config",
-					"container": "/etc/cloudflared"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Network",
-				"Testing"
-			],
-			"description": "This program runs a speedtest check every hour and graphs the results. The back-end is written in Laravel and the front-end uses React. It uses the Ookla's speedtest cli package to get the data and uses Chart.js to plot the results.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "Australia/Brisbane",
-					"label": "TZ",
-					"name": "TZ"
-				},
-				{
-					"default": "true",
-					"label": "OOKLA_EULA_GDPR",
-					"name": "OOKLA_EULA_GDPR"
-				}
-			],
-			"image": "henrywhitaker3/speedtest-tracker:latest",
-			"logo": "https://i.imgur.com/CrgUxmH.png",
-			"name": "SpeedtestTracker",
-			"platform": "linux",
-			"ports": [
-				"8765:80/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Speedtest Tracker",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/home/docker/speedtesttracker/config",
-					"container": "/config"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Network",
-				"Testing"
-			],
-			"description": "SpeedTest by OpenSpeedTest™ is a Free and Open-Source HTML5 Network Performance Estimation Tool Written in Vanilla Javascript and only uses built-in Web APIs.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "Australia/Brisbane",
-					"label": "TZ",
-					"name": "TZ"
-				}
-			],
-			"image": "openspeedtest/latest:latest",
-			"logo": "https://i.imgur.com/HBK1BnZ.png",
-			"name": "OpenspeedTest",
-			"platform": "linux",
-			"ports": [
-				"3780:3000/tcp",
-				"3781:3001/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Openspeed Test",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/home/docker/openspeedtest/config",
-					"container": "/config"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Management",
-				"Tool"
-			],
-			"description": "OpenProject is a web-based project management system for location-independent team collaboration. It is a free open-source application, released under the GNU Version 3, and is available as a community edition and a chargeable Enterprise Edition.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "Australia/Brisbane",
-					"label": "TZ",
-					"name": "TZ"
-				},
-				{
-					"default": "Secret",
-					"label": "OPENPROJECT_SECRET_KEY_BASE",
-					"name": "OPENPROJECT_SECRET_KEY_BASE"
-				},
-				{
-					"default": "localhost:8780",
-					"label": "OPENPROJECT_HOST__NAME",
-					"name": "OPENPROJECT_HOST__NAME"
-				},
-				{
-					"default": "false",
-					"label": "OPENPROJECT_HTTPS",
-					"name": "OPENPROJECT_HTTPS"
-				},
-				{
-					"default": "en",
-					"label": "OPENPROJECT_DEFAULT__LANGUAGE",
-					"name": "OPENPROJECT_DEFAULT__LANGUAGE"
-				}
-			],
-			"image": "openproject/community:13",
-			"logo": "https://i.imgur.com/2uWqYpR.png",
-			"name": "OpenProject",
-			"platform": "linux",
-			"ports": [
-				"8780:80/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "OpenProject",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/home/docker/openproject/config",
-					"container": "/config"
-				}
-			]
-		},
-		{
-			"categories": [
-				"Media",
-				"Server"
-			],
-			"description": "Jellyfin is a free and open-source media server and suite of multimedia applications designed to organize, manage, and share digital media files to networked devices.",
-			"env": [
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
-					"default": "Australia/Brisbane",
-					"label": "TZ",
-					"name": "TZ"
-				}
-			],
-			"image": "jellyfin/jellyfin:latest",
-			"logo": "https://i.imgur.com/cODmw4Q.png",
-			"name": "jellyfin",
-			"platform": "linux",
-			"ports": [
-				"8096:8096/tcp",
-				"8920:8920/tcp",
-				"1900:1900/udp",
-				"7359:7359/udp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Jellyfin",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/home/docker/jellyfin/config",
-					"container": "/config"
-				},
-				{
-					"bind": "/home/docker/jellyfin/cache",
-					"container": "/cache"
-				},
-				{
-					"bind": "/home/docker/jellyfin/media",
-					"container": "/media"
-				}
-			]
-		}
-	]
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "10",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                }
+            ],
+            "note": "Default credentials: admin/admin",
+            "categories": [
+                "filesystem",
+                "storage"
+            ],
+            "platform": "linux",
+            "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/filebrowser.png",
+            "image": "filebrowser/filebrowser:latest",
+            "ports": [
+                "2080/tcp"
+            ],
+            "volumes": [
+                {
+					"bind": "/home/docker/filebrowser/config",
+                    "container": "/data"
+                },
+                {
+					"bind": "/home/docker/filebrowser/srv",
+                    "container": "/srv"
+                },
+                {
+                    "bind": "/home/docker",
+                    "container": "/workspace"
+                }
+            ],
+            "command": "--port 80 --database /data/database.db --root /srv"
+        }
+    ]
 }
