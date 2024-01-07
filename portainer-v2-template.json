@@ -1124,9 +1124,9 @@
             "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/gitlab_ce.png",
             "image": "gitlab/gitlab-ce:latest",
             "ports": [
-                "4080/tcp",
-                "4443/tcp",
-                "4022/tcp"
+                "4080:80/tcp",
+                "4443:443/tcp",
+                "4022:22/tcp"
             ],
             "volumes": [
                 {
@@ -1171,8 +1171,8 @@
             "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/rabbitmq.png",
             "image": "rabbitmq:latest",
             "ports": [
-                "5671/tcp",
-                "5672/tcp"
+                "5671:5671/tcp",
+                "5672:5672/tcp"
             ],
             "volumes": [
                 {
@@ -1211,7 +1211,7 @@
             "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/filebrowser.png",
             "image": "filebrowser/filebrowser:latest",
             "ports": [
-                "2080/tcp"
+                "2080:80/tcp"
             ],
             "volumes": [
                 {
