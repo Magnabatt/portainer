@@ -1121,6 +1121,7 @@
                 "project-management"
             ],
             "platform": "linux",
+			"name": "gitlab",
             "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/gitlab_ce.png",
             "image": "gitlab/gitlab-ce:latest",
             "ports": [
@@ -1168,6 +1169,7 @@
                 "messaging"
             ],
             "platform": "linux",
+			"name": "rabbitmq",
             "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/rabbitmq.png",
             "image": "rabbitmq:latest",
             "ports": [
@@ -1208,6 +1210,7 @@
                 "storage"
             ],
             "platform": "linux",
+			"name": "filebrowser",
             "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/filebrowser.png",
             "image": "filebrowser/filebrowser:latest",
             "ports": [
