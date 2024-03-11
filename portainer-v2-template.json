@@ -902,7 +902,7 @@
                 "Network",
                 "Testing"
             ],
-            "description": "This program runs a speedtest check every hour and graphs the results. The back-end is written in Laravel and the front-end uses React. It uses the Ookla's speedtest cli package to get the data and uses Chart.js to plot the results.",
+            "description": "This program runs a speedtest check every hour and graphs the results. The back-end is written in Laravel and the front-end uses React. It uses the Ookla's speedtest cli package to get the data and uses Chart.js to plot the results. Web: https://docs.speedtest-tracker.dev/",
             "env": [
                 {
                     "default": "1000",
@@ -920,17 +920,18 @@
                     "name": "TZ"
                 },
                 {
-                    "default": "true",
-                    "label": "OOKLA_EULA_GDPR",
-                    "name": "OOKLA_EULA_GDPR"
+                    "default": "mysql",
+                    "label": "DB_CONNECTION",
+                    "name": "DB_CONNECTION"
                 }
             ],
-            "image": "henrywhitaker3/speedtest-tracker:latest",
+            "image": "lscr.io/linuxserver/speedtest-tracker:latest",
             "logo": "https://i.imgur.com/CrgUxmH.png",
             "name": "SpeedtestTracker",
             "platform": "linux",
             "ports": [
-                "8765:80/tcp"
+                "8765:80/tcp",
+                "8766:443/tcp"
             ],
             "restart_policy": "unless-stopped",
             "title": "Speedtest Tracker",
@@ -939,6 +940,10 @@
                 {
                     "bind": "/home/docker/speedtesttracker/config",
                     "container": "/config"
+                },
+                {
+                    "bind": "/home/docker/speedtesttracker/ssl-certs",
+                    "container": "/config/keys"
                 }
             ]
         },
