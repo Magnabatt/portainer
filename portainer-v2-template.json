@@ -923,6 +923,31 @@
                     "default": "mysql",
                     "label": "DB_CONNECTION",
                     "name": "DB_CONNECTION"
+                },
+                {
+                    "default": "1.1.1.1",
+                    "label": "DB_HOST",
+                    "name": "DB_HOST"
+                },
+                {
+                    "default": "3306",
+                    "label": "DB_PORT",
+                    "name": "DB_PORT"
+                },
+                {
+                    "default": "speedtest",
+                    "label": "DB_DATABASE",
+                    "name": "DB_DATABASE"
+                },
+                {
+                    "default": "speed",
+                    "label": "DB_USERNAME",
+                    "name": "DB_USERNAME"
+                },
+                {
+                    "default": "test",
+                    "label": "DB_PASSWORD",
+                    "name": "DB_PASSWORD"
                 }
             ],
             "image": "lscr.io/linuxserver/speedtest-tracker:latest",
