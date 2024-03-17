@@ -553,14 +553,29 @@
                     "default": "Australia/Brisbane",
                     "label": "TZ",
                     "name": "TZ"
+                },
+                {
+                    "default": "http://renderer:3001/render",
+                    "label": "GF_RENDERING_SERVER_URL",
+                    "name": "GF_RENDERING_SERVER_URL"
+                },
+                {
+                    "default": "http://grafana:3000/",
+                    "label": "GF_RENDERING_CALLBACK_URL",
+                    "name": "GF_RENDERING_CALLBACK_URL"
+                },
+                {
+                    "default": "rendering:debug",
+                    "label": "GF_LOG_FILTERS",
+                    "name": "GF_LOG_FILTERS"
                 }
             ],
-            "image": "grafana/grafana",
+            "image": "grafana/grafana:latest",
             "logo": "https://i.imgur.com/f4jIQlw.png",
             "name": "grafana",
             "platform": "linux",
             "ports": [
-                "3000:30000/tcp"
+                "3000:3000/tcp"
             ],
             "restart_policy": "unless-stopped",
             "title": "Grafana",
@@ -568,6 +583,46 @@
             "volumes": [
                 {
                     "bind": "/home/docker/grafana/config",
+                    "container": "/config"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Dashboard",
+                "Tools"
+            ],
+            "description": "A Grafana backend plugin that handles rendering panels and dashboards to PNGs using a headless browser (Chromium).",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                }
+            ],
+            "image": "grafana/grafana-image-renderer:latest",
+            "logo": "https://i.imgur.com/f4jIQlw.png",
+            "name": "grafana-image-renderer",
+            "platform": "linux",
+            "ports": [
+                "3001:8081/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "Grafana Image Renderer",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/grafana-image/config",
                     "container": "/config"
                 }
             ]
