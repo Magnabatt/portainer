@@ -535,6 +535,61 @@
         {
             "categories": [
                 "Dashboard",
+                "Enterprise"
+            ],
+            "description": "Grafana Enterprise is a multi-platform open source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                },
+                {
+                    "default": "http://renderer:3001/render",
+                    "label": "GF_RENDERING_SERVER_URL",
+                    "name": "GF_RENDERING_SERVER_URL"
+                },
+                {
+                    "default": "http://grafana:3002/",
+                    "label": "GF_RENDERING_CALLBACK_URL",
+                    "name": "GF_RENDERING_CALLBACK_URL"
+                },
+                {
+                    "default": "rendering:debug",
+                    "label": "GF_LOG_FILTERS",
+                    "name": "GF_LOG_FILTERS"
+                }
+            ],
+            "image": "grafana/grafana-enterprise:latest",
+            "logo": "https://i.imgur.com/f4jIQlw.png",
+            "name": "grafana-enterprise",
+            "platform": "linux",
+            "ports": [
+                "3002:3000/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "Grafana-Enterprise",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/grafana-enterprise/config",
+                    "container": "/config"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Dashboard",
                 "Tools"
             ],
             "description": "Grafana is a multi-platform open source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources.",
