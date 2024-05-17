@@ -68,7 +68,7 @@
             "volumes": [
                 {
                     "bind": "/home/docker/homepage/config",
-                    "container": "/config"
+                    "container": "/app/config"
                 }
             ]
         },
