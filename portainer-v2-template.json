@@ -4,7 +4,7 @@
         {
             "categories": [
                 "Management",
-                "Web"
+                "Dashboard"
             ],
             "description": "Heimdall is a way to organise all those links to your most used web sites and web applications in a simple way.",
             "env": [
@@ -33,6 +33,41 @@
             "volumes": [
                 {
                     "bind": "/home/docker/heimdall/config",
+                    "container": "/config"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Management",
+                "Dashboard"
+            ],
+            "description": "A modern, fully static, fast, secure fully proxied, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages. Easily configured via YAML files or through docker label discovery.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                }
+            ],
+            "image": "ghcr.io/gethomepage/homepage:latest",
+            "logo": "https://i.imgur.com/yE3tKJu.png",
+            "name": "homepage",
+            "platform": "linux",
+            "ports": [
+                "3003:3000/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "Homepage",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/homepage/config",
                     "container": "/config"
                 }
             ]
