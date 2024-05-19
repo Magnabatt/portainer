@@ -569,6 +569,50 @@
         },
         {
             "categories": [
+                "Monitoring",
+                "Tools"
+            ],
+            "description": "Gets you notified when new versions of your Docker containers are available and lets you react the way you want.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                }
+            ],
+            "image": "fmartinou/whats-up-docker:latest",
+            "logo": "https://i.imgur.com/8fiOvZP.png",
+            "name": "whats-up-docker",
+            "platform": "linux",
+            "ports": [
+                "3004:3000/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "Whats Up Docker",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/whats-up-docker/config",
+                    "container": "/config"
+                },
+                {
+                    "bind": "/home/docker/whats-up-docker/docker.sock",
+                    "container": "/var/run/docker.sock"
+                }
+            ]
+        },
+        {
+            "categories": [
                 "Dashboard",
                 "Enterprise"
             ],
