@@ -1088,6 +1088,53 @@
         },
         {
             "categories": [
+                "DNS",
+                "Tools"
+            ],
+            "description": "This small Alpine Linux based Docker image will allow you to use the free CloudFlare DNS Service as a Dynamic DNS Provider (DDNS).",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                },
+                {
+                    "default": "xxxxxxx",
+                    "label": "API_KEY",
+                    "name": "API_KEY"
+                },
+                {
+                    "default": "example.com",
+                    "label": "ZONE",
+                    "name": "ZONE"
+                },
+                {
+                    "default": "",
+                    "label": "SUBDOMAIN",
+                    "name": "SUBDOMAIN"
+                }
+            ],
+            "image": "oznu/cloudflare-ddns:latest",
+            "logo": "https://i.imgur.com/GQJdWEo.png",
+            "name": "CloudFlare DDNS",
+            "platform": "linux",
+            "command": "tunnel run",
+            "restart_policy": "unless-stopped",
+            "title": "CloudFlared DDNS",
+            "type": 1
+        },
+        {
+            "categories": [
                 "Network",
                 "Testing"
             ],
