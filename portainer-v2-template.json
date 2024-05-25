@@ -854,6 +854,46 @@
         },
         {
             "categories": [
+                "Analytics",
+                "Tools"
+            ],
+            "description": "Node-RED is a flow-based, low-code development tool for visual programming developed originally by IBM for wiring together hardware devices, APIs and online services as part of the Internet of things. Node-RED provides a web browser-based flow editor, which can be used to create JavaScript functions.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                }
+            ],
+            "image": "nodered/node-red:latest",
+            "logo": "https://i.imgur.com/0yYG74w.png",
+            "name": "nodered",
+            "platform": "linux",
+            "ports": [
+                "1880:1880/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "NodeRed",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/nodered/data",
+                    "container": "/data"
+                }
+            ]
+        },
+        {
+            "categories": [
                 "Database",
                 "Tools"
             ],
@@ -1128,7 +1168,6 @@
             "logo": "https://i.imgur.com/GQJdWEo.png",
             "name": "CloudFlare DDNS",
             "platform": "linux",
-            "command": "tunnel run",
             "restart_policy": "unless-stopped",
             "title": "CloudFlared DDNS",
             "type": 1
