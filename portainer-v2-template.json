@@ -370,7 +370,7 @@
                 }
             ],
             "image": "lscr.io/linuxserver/bazarr:latest",
-            "logo": "https://i.imgur.com/DB1loRO.png",
+            "logo": "https://i.imgur.com/MmV45wV.png",
             "name": "bazarr",
             "platform": "linux",
             "ports": [
