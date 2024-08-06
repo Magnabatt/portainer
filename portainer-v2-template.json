@@ -827,6 +827,41 @@
                     "default": "https://example.com",
                     "label": "OLLAMA_BASE_URL",
                     "name": "OLLAMA_BASE_URL"
+                },
+                {
+                    "default": "True",
+                    "label": "ENABLE_RAG_WEB_SEARCH",
+                    "name": "ENABLE_RAG_WEB_SEARCH"
+                },
+                {
+                    "default": "searxng",
+                    "label": "RAG_WEB_SEARCH_ENGINE",
+                    "name": "RAG_WEB_SEARCH_ENGINE"
+                },
+                {
+                    "default": "3",
+                    "label": "RAG_WEB_SEARCH_RESULT_COUNT",
+                    "name": "RAG_WEB_SEARCH_RESULT_COUNT"
+                },
+                {
+                    "default": "10",
+                    "label": "RAG_WEB_SEARCH_CONCURRENT_REQUESTS",
+                    "name": "RAG_WEB_SEARCH_CONCURRENT_REQUESTS"
+                },
+                {
+                    "default": "http://searxng:8080/search?q=<query>",
+                    "label": "SEARXNG_QUERY_URL",
+                    "name": "SEARXNG_QUERY_URL"
+                },
+                {
+                    "default": "False",
+                    "label": "ENABLE_IMAGE_GENERATION",
+                    "name": "ENABLE_IMAGE_GENERATION"
+                },
+                {
+                    "default": "http://<your_comfyui_address>:8188/",
+                    "label": "COMFYUI_BASE_URL",
+                    "name": "COMFYUI_BASE_URL"
                 }
             ],
             "image": "ghcr.io/open-webui/open-webui:main",
@@ -843,6 +878,46 @@
                 {
                     "bind": "/home/docker/open-webui/data",
                     "container": "/app/backend/data"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Search",
+                "Automation"
+            ],
+            "description": "SearXNG is a free internet metasearch engine which aggregates results from more than 70 search services. Users are neither tracked nor profiled. Additionally, SearXNG can be used over Tor for online anonymity.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                }
+            ],
+            "image": "searxng/searxng:latest",
+            "logo": "https://i.imgur.com/qo9xb8O.png",
+            "name": "searxng",
+            "platform": "linux",
+            "ports": [
+                "3011:8080/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "SearXNG",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/searxng/data",
+                    "container": "/etc/searxng"
                 }
             ]
         },
