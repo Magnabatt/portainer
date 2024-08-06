@@ -803,6 +803,51 @@
         },
         {
             "categories": [
+                "AI/ML",
+                "Automation"
+            ],
+            "description": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted WebUI designed to operate entirely offline. It supports various LLM runners, including Ollama and OpenAI-compatible APIs.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                },
+                {
+                    "default": "https://example.com",
+                    "label": "OLLAMA_BASE_URL",
+                    "name": "OLLAMA_BASE_URL"
+                }
+            ],
+            "image": "ghcr.io/open-webui/open-webui:main",
+            "logo": "[https://i.imgur.com/198DZdr.png",
+            "name": "open-webui",
+            "platform": "linux",
+            "ports": [
+                "3010:8080/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "Open WebUI",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/open-webui/data",
+                    "container": "/app/backend/data"
+                }
+            ]
+        },
+        {
+            "categories": [
                 "Database",
                 "Tools"
             ],
