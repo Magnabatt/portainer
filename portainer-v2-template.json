@@ -74,6 +74,49 @@
         },
         {
             "categories": [
+                "Management",
+                "Dashboard"
+            ],
+            "description": "Simplify the management of your server with Homarr - a sleek, modern dashboard that puts all of your apps and services at your fingertips. With Homarr, you can access and control everything in one convenient location. Homarr seamlessly integrates with the apps you've added, providing you with valuable information and giving you complete control. Installation is a breeze, and Homarr supports a wide range of deployment methods.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                }
+            ],
+            "image": "ghcr.io/ajnart/homarr:latest",
+            "logo": "https://i.imgur.com/Cydw0wh.png",
+            "name": "homarr",
+            "platform": "linux",
+            "ports": [
+                "7575:7575/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "Homarr",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/homarr/config",
+                    "container": "/app/data/configs"
+                },
+                {
+                    "bind": "/home/docker/homarr/icons",
+                    "container": "/app/public/icons"
+                },
+                {
+                    "bind": "/home/docker/homarr/data",
+                    "container": "/data"
+                }
+            ]
+        },
+        {
+            "categories": [
                 "Games"
             ],
             "description": "AMP (Application Management Panel) is a simple to use and easy to install control panel and management system for hosting game servers. ",
@@ -849,7 +892,7 @@
                     "name": "RAG_WEB_SEARCH_CONCURRENT_REQUESTS"
                 },
                 {
-                    "default": "http://searxng:8080/search?q=<query>",
+                    "default": "http://searxng:3011/search?q=<query>",
                     "label": "SEARXNG_QUERY_URL",
                     "name": "SEARXNG_QUERY_URL"
                 },
