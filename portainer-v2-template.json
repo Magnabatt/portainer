@@ -1038,7 +1038,7 @@
                     "name": "MONGO_INITDB_ROOT_PASSWORD"
                 }
             ],
-            "image": "mongo:4.4.18",
+            "image": "mongo:latest",
             "logo": "https://i.imgur.com/eOdNNJl.png",
             "name": "mongodb",
             "platform": "linux",
