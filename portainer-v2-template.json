@@ -650,6 +650,58 @@
                 }
             ]
         },
+	{
+            "categories": [
+                "Database",
+                "Monitoring"
+            ],
+            "description": "Telegraf collects and sends time series data from databases, systems, and IoT sensors. It has no external dependencies, is easy to install, and requires minimal hardware resources.",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Australia/Brisbane",
+                    "label": "TZ",
+                    "name": "TZ"
+                },
+                {
+                    "default": "myorg",
+                    "label": "DOCKER_INFLUXDB_INIT_ORG",
+                    "name": "DOCKER_INFLUXDB_INIT_ORG"
+                },
+                {
+                    "default": "mybucket",
+                    "label": "DOCKER_INFLUXDB_INIT_BUCKET",
+                    "name": "DOCKER_INFLUXDB_INIT_BUCKET"
+                },
+                {
+                    "default": "mytoken",
+                    "label": "DOCKER_INFLUXDB_INIT_ADMIN_TOKEN",
+                    "name": "DOCKER_INFLUXDB_INIT_ADMIN_TOKEN"
+                }
+            ],
+            "image": "telegraf:latest",
+            "logo": "https://i.imgur.com/JJP7c1x.png",
+            "name": "telegraf",
+            "platform": "linux",
+            "restart_policy": "unless-stopped",
+            "title": "Telegraf",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/home/docker/telegraf/telegraf/telegraf.conf",
+                    "container": "/telegraf/telegraf.conf"
+                }
+            ]
+        },
         {
             "categories": [
                 "Monitoring",
