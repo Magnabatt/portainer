@@ -697,8 +697,8 @@
             "type": 1,
             "volumes": [
                 {
-                    "bind": "/home/docker/telegraf/",
-                    "container": "/telegraf"
+                    "bind": "/home/docker/telegraf",
+                    "container": "/etc/telegraf"
                 }
             ]
         },
