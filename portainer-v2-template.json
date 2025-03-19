@@ -1586,7 +1586,7 @@
                     "name": "OPENPROJECT_DEFAULT__LANGUAGE"
                 }
             ],
-            "image": "openproject/community:latest",
+            "image": "openproject/community",
             "logo": "https://i.imgur.com/2uWqYpR.png",
             "name": "OpenProject",
             "platform": "linux",
